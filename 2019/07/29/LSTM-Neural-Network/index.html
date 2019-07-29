@@ -79,13 +79,27 @@
 
 
 
-<meta property="og:type" content="website">
+<meta name="description" content="LSTM Network 长短期时间序列模型介绍核心算法介绍:传统的RNN神经网络:&amp;emsp;&amp;emsp;RNN之所以称为循环神经网络，即”一个序列的当前输出与前面的输出是有相关性”。具体实质体现在后面层数的输入值要加入前面层的输出值，即隐藏层之间不再是不相连的而是有连接的。 展开的递归循环神经网络&amp;emsp;&amp;emsp;在学习信息情况下，如果相关信息与所需信息之间的差距很小，则RNN可以学">
+<meta property="og:type" content="article">
 <meta property="og:title" content="张添豪的博客">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/07/29/LSTM-Neural-Network/index.html">
 <meta property="og:site_name" content="张添豪的博客">
+<meta property="og:description" content="LSTM Network 长短期时间序列模型介绍核心算法介绍:传统的RNN神经网络:&amp;emsp;&amp;emsp;RNN之所以称为循环神经网络，即”一个序列的当前输出与前面的输出是有相关性”。具体实质体现在后面层数的输入值要加入前面层的输出值，即隐藏层之间不再是不相连的而是有连接的。 展开的递归循环神经网络&amp;emsp;&amp;emsp;在学习信息情况下，如果相关信息与所需信息之间的差距很小，则RNN可以学">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://colah.github.io/posts/2015-08-Understanding-LSTMs/img/RNN-unrolled.png">
+<meta property="og:image" content="https://colah.github.io/posts/2015-08-Understanding-LSTMs/img/RNN-longtermdependencies.png">
+<meta property="og:image" content="https://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-SimpleRNN.png">
+<meta property="og:image" content="https://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-chain.png">
+<meta property="og:image" content="https://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-C-line.png">
+<meta property="og:image" content="https://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-focus-f.png">
+<meta property="og:image" content="https://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-focus-i.png">
+<meta property="og:image" content="https://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-focus-C.png">
+<meta property="og:image" content="https://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-focus-o.png">
+<meta property="og:updated_time" content="2019-07-29T08:29:13.424Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="张添豪的博客">
+<meta name="twitter:description" content="LSTM Network 长短期时间序列模型介绍核心算法介绍:传统的RNN神经网络:&amp;emsp;&amp;emsp;RNN之所以称为循环神经网络，即”一个序列的当前输出与前面的输出是有相关性”。具体实质体现在后面层数的输入值要加入前面层的输出值，即隐藏层之间不再是不相连的而是有连接的。 展开的递归循环神经网络&amp;emsp;&amp;emsp;在学习信息情况下，如果相关信息与所需信息之间的差距很小，则RNN可以学">
+<meta name="twitter:image" content="https://colah.github.io/posts/2015-08-Understanding-LSTMs/img/RNN-unrolled.png">
 
 
 
@@ -115,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/">
+  <link rel="canonical" href="http://yoursite.com/2019/07/29/LSTM-Neural-Network/">
 
 
 
 
 
-  <title>归档 | 张添豪的博客</title>
+  <title> | 张添豪的博客</title>
   
 
 
@@ -140,7 +154,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -246,142 +260,171 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/29/LSTM-Neural-Network/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Coper">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="张添豪的博客">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline"></h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-29T16:27:52+08:00">
+                2019-07-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 3 篇日志。 继续努力。
-      </span>
 
-      
-
-        
-        
-        
-
-        
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
+            
+          
 
-        
+          
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/07/29/LSTM-Neural-Network/" itemprop="url">
-              
-                <span itemprop="name">未命名</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-29T16:27:52+08:00" content="2019-07-29">
-          07-29
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+        </div>
+      </header>
+    
 
-
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/07/29/test/" itemprop="url">
-              
-                <span itemprop="name">test</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-29T15:33:15+08:00" content="2019-07-29">
-          07-29
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
+      
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
 
-        
-        
+<h1 id="LSTM-Network-长短期时间序列模型介绍"><a href="#LSTM-Network-长短期时间序列模型介绍" class="headerlink" title="LSTM Network 长短期时间序列模型介绍"></a>LSTM Network 长短期时间序列模型介绍</h1><h2 id="核心算法介绍"><a href="#核心算法介绍" class="headerlink" title="核心算法介绍:"></a><strong>核心算法介绍:</strong></h2><h3 id="传统的RNN神经网络"><a href="#传统的RNN神经网络" class="headerlink" title="传统的RNN神经网络:"></a><strong>传统的RNN神经网络:</strong></h3><p>&emsp;&emsp;RNN之所以称为循环神经网络，即”一个序列的当前输出与前面的输出是有相关性”。具体实质体现在后面层数的输入值要加入前面层的输出值，即隐藏层之间不再是不相连的而是有连接的。</p>
+<center><img src="https://colah.github.io/posts/2015-08-Understanding-LSTMs/img/RNN-unrolled.png" width="380" height="125"></center><br><center><strong>展开的递归循环神经网络</strong></center><br>&emsp;&emsp;在学习信息情况下，如果相关信息与所需信息之间的差距很小，则RNN可以学习使用过去的信息，表现出较好的训练能力，比如：我们试图预测”云在天空中”的最后一次”天空”,RNN模型就能非常容易的识别出来。但是，如果相关信息与所需要信息之间的<strong>距离相差过远</strong>时，RNN模型就会很难学习连接这些关系。<br><center><img src="https://colah.github.io/posts/2015-08-Understanding-LSTMs/img/RNN-longtermdependencies.png" width="380" height="150"></center>
 
-        
+<h3 id="LSTM-神经网络"><a href="#LSTM-神经网络" class="headerlink" title="LSTM 神经网络:"></a><strong>LSTM 神经网络:</strong></h3><p>&emsp;&emsp; 长短期时间序列模型(LSTM)是一种特殊的RNN，能够学习长期的依赖性。LSTM的优点就是能够明确旨在避免长期依赖性问题。它能够长时间记住信息，解决了RNN信息距离过长而丧失学习的能力的缺点。所有递归神经网络都具有具有神经网络重复模块链的形式。在标准的RNN中，该重复模块具有非常简单的结构，就是单一的tanh层。</p>
+<center><img src="https://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-SimpleRNN.png" width="380" height="150"></center><br><center><strong>标准RNN中的重复模块包含单个层</strong></center><br>&emsp;&emsp;同样LSTM也具有这种类似链的结构，但是重复模块缺失具有不同的结构，它们分别是传输层，遗忘门，输入门，输出门。<br><center><img src="https://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-chain.png" width="380" height="150"></center><br><center><strong>LSTM中的重复模块包含四个交互层</strong></center>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+<h3 id="1-传输层"><a href="#1-传输层" class="headerlink" title="1.传输层"></a><strong>1.传输层</strong></h3><p>&emsp;&emsp;传输层水平贯穿图的顶部，直接沿着整个链运行，进行着一些次要的线性交互。从上图中我们可以看出，每个序列索引位置t时刻向前传播中除了和RNN一样具有隐藏状态$h^{(t)}$,还多了另一个隐藏状态，图中上面的横线我们一般称为<strong>细胞状态</strong>，记为$C^{(t)}$。</p>
+<center><img src="https://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-C-line.png" width="500" height="180"></center><br><center><strong>传输层中的细胞状态</strong></center>
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/04/30/hello-world/" itemprop="url">
-              
-                <span itemprop="name">Hello World</span>
-              
-            </a>
-        
-      </h2>
+<h3 id="2-遗忘门"><a href="#2-遗忘门" class="headerlink" title="2.遗忘门"></a><strong>2.遗忘门</strong></h3><p>&emsp;&emsp;遗忘门是以一定的概率控制是否遗忘上一层的隐藏细胞状态。图中我们可以看出输入的有上一序列的隐藏状态$h^{(t-1)}$和本序列数据$x^{(t)}$,通过激活函数sigmoid，得到遗忘门的输出$f(t)$.由于sigmoid函数的输出$f(t)$是位于[0,1]之间，所以这里的输出$f(t)$就是代表了<strong>能否遗忘上一层隐藏细胞状态的概率</strong>。<br>该数字表达可以为:<br>$$<br>f^{(t)}=\sigma(W_{f}h^{(t-1)}+U_{f}x{(t)}+b_{f})<br>$$</p>
+<p>其中$W_{f}$,$U_{f}$,$b_{f}$分别为线性关系的权重和偏移值。</p>
+<center><img src="https://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-focus-f.png" width="450" height="180"></center><br><center><strong>遗忘门的体系架构</strong></center>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-30T11:46:04+08:00" content="2019-04-30">
-          04-30
-        </time>
-      </div>
+<h3 id="3-输入门"><a href="#3-输入门" class="headerlink" title="3.输入门"></a><strong>3.输入门</strong></h3><p>输入门层决定我们在单元状态中存储哪些新的信息。其中有两部分组成，一部分称为”输入门层的sigmoid层”,这层决定我们将更新之前的哪些值，输出为$i^{(t)}$，第二部分为”输入门层的tanh层”,这层决定我们创建新的候选值,输出为$a^{(t)}$，最后结合两个创建状态进行更新。<br>该数学表达式可以为:<br>$$<br>i^{(t)}=\sigma(W_{i}h^{(t-1)}+U_{i}x{(t)}+b_{i})\<br>a^{(t)}=\tanh(W_{a}h^{(t-1)}+U_{a}x{(t)}+b_{a})<br>$$<br>其中$W_{i}$,$U_{i}$,$b_{i}$,$W_{a}$,$U_{a}$,$b_{a}$分别为线性关系的权重和偏移值。</p>
+<center><img src="https://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-focus-i.png" width="450" height="180"></center><br><center><strong>输入门的体系架构</strong></center>
 
-    </header>
-  </article>
+<h3 id="4-细胞状态更新"><a href="#4-细胞状态更新" class="headerlink" title="4.细胞状态更新"></a><strong>4.细胞状态更新</strong></h3><p>此过程是决定将旧的细胞状态$C_{t-1}$更新至新的细胞状态$C_{t}$。在这个过程中首先我们将<strong>$f_{t}$乘以$C_{t-1}$来决定是否忘记之前的事情</strong>。其次我们添加了<strong>$i_{t}*\tilde{C_{t}}$来决定我们需要更新多少新的状态值</strong>。即：<br>$$<br>C^{(t)}=C^{(t-1)}\odot f^{(t)}+i^{(t)}\odot a^{(t)}<br>$$</p>
+<center><img src="https://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-focus-C.png" width="450" height="180"></center><br><center><strong>细胞状态更新体系架构</strong></center>
 
+<h3 id="5-输出门"><a href="#5-输出门" class="headerlink" title="5.输出门"></a><strong>5.输出门</strong></h3><p>输出门是决定我们要输出的内容。首先，先运行的是一个sigmoid层，决定输出的单元状态属于隐藏状态部分$h^{(t-1)}$,还是本序列数据部分$x^{(t)}$.接着，运行的是tan层，将细胞状态$C_{t}$乘以sigmoid层的输出，从而获取我们所决定的部分。即：<br>$$<br>o^{(t)}=\sigma(W_{o}h^{(t-1)}+U_{o}x^(t)+b_{o})\<br>h^{(t)}= o^{(t)}\odot\tanh(C^{(t)})<br>$$<br>同理其中的$W_{o}$,$U_{o}$,$b_{o}$分别为线性关系的权重和偏移值。</p>
+<center><img src="https://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-focus-o.png" width="450" height="180"></center><br><center><strong>输出门的体系架构</strong></center>
 
+<h2 id="Keras-LSTM-算法模型："><a href="#Keras-LSTM-算法模型：" class="headerlink" title="Keras LSTM 算法模型："></a><strong>Keras LSTM 算法模型：</strong></h2><h3 id="LSTM模型构建"><a href="#LSTM模型构建" class="headerlink" title="LSTM模型构建: "></a><strong>LSTM模型构建: </strong></h3><p>1.首先初始化模型Sequential()</p>
+<p>2.接着添加LSTM模型层架构，其中$hiddenLayer$代表为隐藏神经元个数，通俗易懂的解释可以为模型中每个sigmoid层或者tanh层。(注意:LSTM训练模型格式矩阵内容<strong>[samples,time_steps,features]</strong>,简单的说就是[n,1,m]架构，即规定了多少特征输入，一个输出)</p>
+<p>3.添加模型全连接层</p>
+<p>4.编译模型，选择对应的损失函数和优化器，其中常用的损失函数是MSE,MAE–用于回归，binary-crossentropy–用于二值化分类，categorical-crossentropy–用于标签分类。优化的选择我们常用的自适应学习率优化算法 AdaGrad, AdaDelta,Adam。其他类型不建议使用。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">model = Sequential()</span><br><span class="line">model.add(LSTM(hiddenLayer, input_shape=(train_x.shape[<span class="number">1</span>], train_x.shape[<span class="number">2</span>])))</span><br><span class="line">model.add(Dense(<span class="number">1</span>))</span><br><span class="line">model.compile(loss=loss, optimizer=optimizer, metrics=[<span class="string">"accuracy"</span>])</span><br></pre></td></tr></table></figure>
+<h3 id="LSTM模型训练"><a href="#LSTM模型训练" class="headerlink" title="LSTM模型训练: "></a><strong>LSTM模型训练: </strong></h3><p>将设置好的LSTM模型进行训练，其中$epochs$为循环迭代的次数，$batch size$即每次循环所走的分支数，$validation data$即采用交叉验证的方式对数据进行验证<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Fit network</span></span><br><span class="line">checkpointer = ModelCheckpoint(filepath=outputModel, verbose=<span class="number">1</span>, save_best_only=<span class="literal">True</span>)</span><br><span class="line">history = model.fit(</span><br><span class="line">    train_x,</span><br><span class="line">    train_y,</span><br><span class="line">    epochs=epochs,</span><br><span class="line">    batch_size=batchSize,</span><br><span class="line">    validation_data=(test_x, test_y),</span><br><span class="line">    verbose=<span class="number">2</span>,</span><br><span class="line">    shuffle=<span class="literal">False</span>,</span><br><span class="line">    callbacks=[checkpointer],</span><br><span class="line">)</span><br><span class="line">logger.info(model.summary())</span><br><span class="line">show_picture(history, imageFolder)</span><br></pre></td></tr></table></figure></p>
+<h3 id="LSTM模型预测"><a href="#LSTM模型预测" class="headerlink" title="LSTM模型预测: "></a><strong>LSTM模型预测: </strong></h3><p>模型预测后的得到的结果为[n,1,m]类型，需要重新reshape得到最终的结果<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yhat = model.predict(test_X)</span><br></pre></td></tr></table></figure></p>
 
       
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/29/test/" rel="next" title="test">
+                <i class="fa fa-chevron-left"></i> test
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -389,6 +432,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -409,8 +456,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -452,6 +508,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#LSTM-Network-长短期时间序列模型介绍"><span class="nav-number">1.</span> <span class="nav-text">LSTM Network 长短期时间序列模型介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#核心算法介绍"><span class="nav-number">1.1.</span> <span class="nav-text">核心算法介绍:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#传统的RNN神经网络"><span class="nav-number">1.1.1.</span> <span class="nav-text">传统的RNN神经网络:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LSTM-神经网络"><span class="nav-number">1.1.2.</span> <span class="nav-text">LSTM 神经网络:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-传输层"><span class="nav-number">1.1.3.</span> <span class="nav-text">1.传输层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-遗忘门"><span class="nav-number">1.1.4.</span> <span class="nav-text">2.遗忘门</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-输入门"><span class="nav-number">1.1.5.</span> <span class="nav-text">3.输入门</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-细胞状态更新"><span class="nav-number">1.1.6.</span> <span class="nav-text">4.细胞状态更新</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-输出门"><span class="nav-number">1.1.7.</span> <span class="nav-text">5.输出门</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Keras-LSTM-算法模型："><span class="nav-number">1.2.</span> <span class="nav-text">Keras LSTM 算法模型：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#LSTM模型构建"><span class="nav-number">1.2.1.</span> <span class="nav-text">LSTM模型构建: </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LSTM模型训练"><span class="nav-number">1.2.2.</span> <span class="nav-text">LSTM模型训练: </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LSTM模型预测"><span class="nav-number">1.2.3.</span> <span class="nav-text">LSTM模型预测: </span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -592,6 +664,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
