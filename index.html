@@ -261,6 +261,178 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/12/Image-EdgeDetection-Canny-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Coper">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="张添豪的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/12/Image-EdgeDetection-Canny-1/" itemprop="url">Image EdgeDetection Canny</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-12T18:07:37+08:00">
+                2019-08-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-08-09 18:08:14
+ * @LastEditTime: 2019-08-12 14:56:24
+ * @LastEditors: Please set LastEditors
+ -->
+<hr>
+<p>title: Image EdgeDetection Canny<br>date: 2019-08-09 18:08:14</p>
+<h2 id="tags"><a href="#tags" class="headerlink" title="tags:"></a>tags:</h2><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+
+<h1 id="图像处理之Canny边缘检测"><a href="#图像处理之Canny边缘检测" class="headerlink" title="图像处理之Canny边缘检测"></a>图像处理之Canny边缘检测</h1><h4 id="理论介绍"><a href="#理论介绍" class="headerlink" title="理论介绍:"></a>理论介绍:</h4><p>Canny边缘检测是一种流行的边缘检测算法. 它由John F. Canny于1986年开发. 它是一个多阶段算法, 我们将经历每个阶段.</p>
+<ol>
+<li><strong>降噪</strong><br>由于边缘检测易受图像中的噪声影响, 因此第一步是使用5x5高斯滤波器去除图像中的噪.  </li>
+<li><p><strong>寻找图像的强度梯度</strong><br>然后在水平和垂直方向上用Sobel内核对平滑后的图像进行滤波, 以获得水平方向$(G<em>{x})$和垂直方向$(G</em>{y})$的一阶导数. 从这两个图像中, 我们可以找到每个像素的<strong>边缘梯度和方向</strong>, 渐变方向始终垂直于边缘. 边缘方向角度四舍五入为四个角度中的一个, 表示垂直, 水平和两个对角线(0°,45°,90°和135°). 落入每个颜色区域的边缘方向将被设置为特定角度值,例如, 在[0°,22.5°]或[157.5°,180°]中的θ映射到0°. 如下所示</p>
+<script type="math/tex; mode=display">
+EdgeGradient(G)= \sqrt {G_x ^ 2 + G_y ^ 2}\\
+Angle(\theta)= \tan^{-1}(\frac {G_y} {G_x})</script></li>
+<li><p><strong>非最大抑制</strong><br>应用梯度计算后, 从梯度值中提取的边缘仍然非常模. 关于标准3, 应该只对边缘有一个准确的响应. 因此, 非最大抑制可以帮助抑制所有梯度值(通过将它们设置为0), 除了局部最大值, 其指示具有最强烈的强度值变化的位置. 梯度图像中每个像素的算法是:</p>
+<ul>
+<li>将当前像素的边缘强度与正和负梯度方向上的像素的边缘强度进行比较.</li>
+<li>如果当前像素的边缘强度与具有相同方向的掩模中的其他像素相比是最大的(例如, 指向y方向的像素将与垂直轴上方和下方的像素进行比较), 该值将被保留. 否则, 该值将被抑制.</li>
+</ul>
+</li>
+<li><p><strong>滞后阈值</strong><br>这个阶段决定哪些边缘都是边缘, 哪些边缘不是边缘. 为此, 我们需要两个阈值, minVal和maxVal. 强度梯度大于maxVal的任何边缘肯定是边缘, 而minVal以下的边缘肯定是非边缘, 因此被丢弃. 位于这两个阈值之间的人是基于其连通性的分类边缘或非边缘. 如果它们连接到“可靠边缘”像素, 则它们被视为边缘的一部分. 否则, 他们也被丢弃.<br>边缘A高于maxVal, 因此被视为”确定边缘”. 虽然边C低于maxVal, 但它连接到边A, 因此也被视为有效边, 我们得到完整的曲线. 但是边缘B虽然高于minVal并且与边缘C的区域相同, 但它没有连接到任何”可靠边缘”, 因此被丢弃. 因此, 我们必须相应地选择minVal和maxVal才能获得正确的结果.</p>
+<center><img src="https://opencv-python-tutroals.readthedocs.io/en/latest/_images/hysteresis.jpg" width="350" height="225"></center>
+
+
+</li>
+</ol>
+<h4 id="算法原型"><a href="#算法原型" class="headerlink" title="算法原型:"></a>算法原型:</h4><p>&emsp;&emsp;在OpenCV-Python中Canny函数的原型为:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">edge = cv2.Canny(image, threshold1, threshold2[, edges[, apertureSize[, L2gradient ]]])</span><br></pre></td></tr></table></figure></p>
+<p>必要参数:</p>
+<ul>
+<li>第一个参数是需要处理的原图像, 该图像必须为单通道的灰度图;</li>
+<li>第二个参数是minVal, 最小边缘阈值</li>
+<li>第三个参数是maxVal, 最大边缘阈值</li>
+</ul>
+<p>推荐的minVal和maxVal阈值之间的比例为1:3或者1:2, 可选参数中apertureSize就是Sobel算子的大小. 而L2gradient参数是一个布尔值, 如果为真, 则使用更精确的L2范数进行计算(即两个方向的倒数的平方和再开放), 否则使用L1范数(直接将两个方向导数的绝对值相加).</p>
+<h4 id="代码展示"><a href="#代码展示" class="headerlink" title="代码展示:"></a>代码展示:</h4><pre><code class="lang-python">import cv2
+import numpy as np
+from matplotlib import pyplot as plt
+
+img = cv2.imread(&#39;messi5.jpg&#39;,0)
+edges = cv2.Canny(img,100,200)
+
+plt.subplot(121),plt.imshow(img,cmap = &#39;gray&#39;)
+plt.title(&#39;Original Image&#39;), plt.xticks([]), plt.yticks([])
+plt.subplot(122),plt.imshow(edges,cmap = &#39;gray&#39;)
+plt.title(&#39;Edge Image&#39;), plt.xticks([]), plt.yticks([])
+
+plt.show()
+</code></pre>
+<h4 id="结果展示"><a href="#结果展示" class="headerlink" title="结果展示:"></a>结果展示:</h4><p>原始图像:<br><img src="EdgeImage/girl.jpg" alt="Alt text" title="girl"><br><img src="EdgeImage/lossypage.jpg" alt="Alt text" title="castle"><br><img src="EdgeImage/lion.jpg" alt="Alt text" title="lion"><br>处理后图像:<br><img src="EdgeImage/girlCanny.jpg" alt="Alt text" title="girl"><br><img src="EdgeImage/lossypageCanny.jpg" alt="Alt text" title="castle"><br><img src="EdgeImage/lionCanny.jpg" alt="Alt text" title="lion"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/09/Image-EdgeDetection-Sobel/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -739,7 +911,7 @@ h^{(t)}= o^{(t)}\odot\tanh(C^{(t)})</script><p>同理其中的$W<em>{o}$,$U</em>
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
