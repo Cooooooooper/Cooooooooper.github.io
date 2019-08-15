@@ -79,12 +79,12 @@
 
 
 
-<meta name="description" content="图像处理之Canny边缘检测理论介绍:Canny边缘检测是一种流行的边缘检测算法. 它由John F. Canny于1986年开发. 它是一个多阶段算法, 我们将经历每个阶段.  降噪由于边缘检测易受图像中的噪声影响, 因此第一步是使用5x5高斯滤波器去除图像中的噪.   寻找图像的强度梯度然后在水平和垂直方向上用Sobel内核对平滑后的图像进行滤波, 以获得水平方向$(G_{x})$和垂直">
+<meta name="description" content="图像处理之Canny边缘检测理论介绍:Canny边缘检测是一种流行的边缘检测算法. 它由John F. Canny于1986年开发. 它是一个多阶段算法, 我们将经历每个阶段.  降噪由于边缘检测易受图像中的噪声影响, 因此第一步是使用5x5高斯滤波器去除图像中的噪.   寻找图像的强度梯度然后在水平和垂直方向上用Sobel内核对平滑后的图像进行滤波, 以获得水平方向$(G{x})$和垂直方">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Image EdgeDetection Canny">
 <meta property="og:url" content="http://yoursite.com/2019/08/12/Image-EdgeDetection-Canny-1/index.html">
 <meta property="og:site_name" content="张添豪的博客">
-<meta property="og:description" content="图像处理之Canny边缘检测理论介绍:Canny边缘检测是一种流行的边缘检测算法. 它由John F. Canny于1986年开发. 它是一个多阶段算法, 我们将经历每个阶段.  降噪由于边缘检测易受图像中的噪声影响, 因此第一步是使用5x5高斯滤波器去除图像中的噪.   寻找图像的强度梯度然后在水平和垂直方向上用Sobel内核对平滑后的图像进行滤波, 以获得水平方向$(G_{x})$和垂直">
+<meta property="og:description" content="图像处理之Canny边缘检测理论介绍:Canny边缘检测是一种流行的边缘检测算法. 它由John F. Canny于1986年开发. 它是一个多阶段算法, 我们将经历每个阶段.  降噪由于边缘检测易受图像中的噪声影响, 因此第一步是使用5x5高斯滤波器去除图像中的噪.   寻找图像的强度梯度然后在水平和垂直方向上用Sobel内核对平滑后的图像进行滤波, 以获得水平方向$(G{x})$和垂直方">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://opencv-python-tutroals.readthedocs.io/en/latest/_images/hysteresis.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/08/12/Image-EdgeDetection-Canny-1/2019/EdgeImage/girl.jpg">
@@ -96,7 +96,7 @@
 <meta property="og:updated_time" content="2019-08-12T10:30:25.653Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Image EdgeDetection Canny">
-<meta name="twitter:description" content="图像处理之Canny边缘检测理论介绍:Canny边缘检测是一种流行的边缘检测算法. 它由John F. Canny于1986年开发. 它是一个多阶段算法, 我们将经历每个阶段.  降噪由于边缘检测易受图像中的噪声影响, 因此第一步是使用5x5高斯滤波器去除图像中的噪.   寻找图像的强度梯度然后在水平和垂直方向上用Sobel内核对平滑后的图像进行滤波, 以获得水平方向$(G_{x})$和垂直">
+<meta name="twitter:description" content="图像处理之Canny边缘检测理论介绍:Canny边缘检测是一种流行的边缘检测算法. 它由John F. Canny于1986年开发. 它是一个多阶段算法, 我们将经历每个阶段.  降噪由于边缘检测易受图像中的噪声影响, 因此第一步是使用5x5高斯滤波器去除图像中的噪.   寻找图像的强度梯度然后在水平和垂直方向上用Sobel内核对平滑后的图像进行滤波, 以获得水平方向$(G{x})$和垂直方">
 <meta name="twitter:image" content="https://opencv-python-tutroals.readthedocs.io/en/latest/_images/hysteresis.jpg">
 
 
@@ -351,8 +351,10 @@
 <h1 id="图像处理之Canny边缘检测"><a href="#图像处理之Canny边缘检测" class="headerlink" title="图像处理之Canny边缘检测"></a>图像处理之Canny边缘检测</h1><h4 id="理论介绍"><a href="#理论介绍" class="headerlink" title="理论介绍:"></a>理论介绍:</h4><p>Canny边缘检测是一种流行的边缘检测算法. 它由John F. Canny于1986年开发. 它是一个多阶段算法, 我们将经历每个阶段.</p>
 <ol>
 <li><strong>降噪</strong><br>由于边缘检测易受图像中的噪声影响, 因此第一步是使用5x5高斯滤波器去除图像中的噪.  </li>
-<li><p><strong>寻找图像的强度梯度</strong><br>然后在水平和垂直方向上用Sobel内核对平滑后的图像进行滤波, 以获得水平方向$(G_{x})$和垂直方向$(G_{y})$的一阶导数. 从这两个图像中, 我们可以找到每个像素的<strong>边缘梯度和方向</strong>, 渐变方向始终垂直于边缘. 边缘方向角度四舍五入为四个角度中的一个, 表示垂直, 水平和两个对角线(0°,45°,90°和135°). 落入每个颜色区域的边缘方向将被设置为特定角度值,例如, 在[0°,22.5°]或[157.5°,180°]中的θ映射到0°. 如下所示<br>$$<br>EdgeGradient(G)= \sqrt {G_x ^ 2 + G_y ^ 2}\<br>Angle(\theta)= \tan^{-1}(\frac {G_y} {G_x})<br>$$</p>
-</li>
+<li><p><strong>寻找图像的强度梯度</strong><br>然后在水平和垂直方向上用Sobel内核对平滑后的图像进行滤波, 以获得水平方向$(G<em>{x})$和垂直方向$(G</em>{y})$的一阶导数. 从这两个图像中, 我们可以找到每个像素的<strong>边缘梯度和方向</strong>, 渐变方向始终垂直于边缘. 边缘方向角度四舍五入为四个角度中的一个, 表示垂直, 水平和两个对角线(0°,45°,90°和135°). 落入每个颜色区域的边缘方向将被设置为特定角度值,例如, 在[0°,22.5°]或[157.5°,180°]中的θ映射到0°. 如下所示</p>
+<script type="math/tex; mode=display">
+EdgeGradient(G)= \sqrt {G_x ^ 2 + G_y ^ 2}\\
+Angle(\theta)= \tan^{-1}(\frac {G_y} {G_x})</script></li>
 <li><p><strong>非最大抑制</strong><br>应用梯度计算后, 从梯度值中提取的边缘仍然非常模. 关于标准3, 应该只对边缘有一个准确的响应. 因此, 非最大抑制可以帮助抑制所有梯度值(通过将它们设置为0), 除了局部最大值, 其指示具有最强烈的强度值变化的位置. 梯度图像中每个像素的算法是:</p>
 <ul>
 <li>将当前像素的边缘强度与正和负梯度方向上的像素的边缘强度进行比较.</li>
@@ -373,17 +375,17 @@
 <li>第三个参数是maxVal, 最大边缘阈值</li>
 </ul>
 <p>推荐的minVal和maxVal阈值之间的比例为1:3或者1:2, 可选参数中apertureSize就是Sobel算子的大小. 而L2gradient参数是一个布尔值, 如果为真, 则使用更精确的L2范数进行计算(即两个方向的倒数的平方和再开放), 否则使用L1范数(直接将两个方向导数的绝对值相加).</p>
-<h4 id="代码展示"><a href="#代码展示" class="headerlink" title="代码展示:"></a>代码展示:</h4><pre><code class="python"><span class="keyword">import</span> cv2
-<span class="keyword">import</span> numpy <span class="keyword">as</span> np
-<span class="keyword">from</span> matplotlib <span class="keyword">import</span> pyplot <span class="keyword">as</span> plt
+<h4 id="代码展示"><a href="#代码展示" class="headerlink" title="代码展示:"></a>代码展示:</h4><pre><code class="lang-python">import cv2
+import numpy as np
+from matplotlib import pyplot as plt
 
-img = cv2.imread(<span class="string">'messi5.jpg'</span>,<span class="number">0</span>)
-edges = cv2.Canny(img,<span class="number">100</span>,<span class="number">200</span>)
+img = cv2.imread(&#39;messi5.jpg&#39;,0)
+edges = cv2.Canny(img,100,200)
 
-plt.subplot(<span class="number">121</span>),plt.imshow(img,cmap = <span class="string">'gray'</span>)
-plt.title(<span class="string">'Original Image'</span>), plt.xticks([]), plt.yticks([])
-plt.subplot(<span class="number">122</span>),plt.imshow(edges,cmap = <span class="string">'gray'</span>)
-plt.title(<span class="string">'Edge Image'</span>), plt.xticks([]), plt.yticks([])
+plt.subplot(121),plt.imshow(img,cmap = &#39;gray&#39;)
+plt.title(&#39;Original Image&#39;), plt.xticks([]), plt.yticks([])
+plt.subplot(122),plt.imshow(edges,cmap = &#39;gray&#39;)
+plt.title(&#39;Edge Image&#39;), plt.xticks([]), plt.yticks([])
 
 plt.show()
 </code></pre>
