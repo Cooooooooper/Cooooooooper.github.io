@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="fold命令&amp;emsp;&amp;emsp;folder指令会从指定的文件里读取内容, 将超过限定列宽的列加入增列字符后, 输出到标准输出设备。若不指定任何文件名称, 或是所给予的文件名为-, 则fold指令会从标准输入设备读取数据。1fold [-bs] [-w &amp;lt;每行列数&amp;gt;] [--help] [--version] [文件...]  -b或—bytes:以Byte为单位计算列宽, 而非">
+<meta name="description" content="fold命令&amp;emsp;&amp;emsp;folder指令会从指定的文件里读取内容, 将超过限定列宽的列加入增列字符后, 输出到标准输出设备。若不指定任何文件名称, 或是所给予的文件名为-, 则fold指令会从标准输入设备读取数据。1fold [-bs] [-w &amp;lt;每行列数&amp;gt;] [--help] [--version] [文件...]  -b或–bytes:以Byte为单位计算列宽, 而非">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux--基本文本处理">
 <meta property="og:url" content="http://yoursite.com/2019/08/19/Linux-基本文本处理-1/index.html">
 <meta property="og:site_name" content="张添豪的博客">
-<meta property="og:description" content="fold命令&amp;emsp;&amp;emsp;folder指令会从指定的文件里读取内容, 将超过限定列宽的列加入增列字符后, 输出到标准输出设备。若不指定任何文件名称, 或是所给予的文件名为-, 则fold指令会从标准输入设备读取数据。1fold [-bs] [-w &amp;lt;每行列数&amp;gt;] [--help] [--version] [文件...]  -b或—bytes:以Byte为单位计算列宽, 而非">
+<meta property="og:description" content="fold命令&amp;emsp;&amp;emsp;folder指令会从指定的文件里读取内容, 将超过限定列宽的列加入增列字符后, 输出到标准输出设备。若不指定任何文件名称, 或是所给予的文件名为-, 则fold指令会从标准输入设备读取数据。1fold [-bs] [-w &amp;lt;每行列数&amp;gt;] [--help] [--version] [文件...]  -b或–bytes:以Byte为单位计算列宽, 而非">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-08-19T08:44:01.422Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux--基本文本处理">
-<meta name="twitter:description" content="fold命令&amp;emsp;&amp;emsp;folder指令会从指定的文件里读取内容, 将超过限定列宽的列加入增列字符后, 输出到标准输出设备。若不指定任何文件名称, 或是所给予的文件名为-, 则fold指令会从标准输入设备读取数据。1fold [-bs] [-w &amp;lt;每行列数&amp;gt;] [--help] [--version] [文件...]  -b或—bytes:以Byte为单位计算列宽, 而非">
+<meta name="twitter:description" content="fold命令&amp;emsp;&amp;emsp;folder指令会从指定的文件里读取内容, 将超过限定列宽的列加入增列字符后, 输出到标准输出设备。若不指定任何文件名称, 或是所给予的文件名为-, 则fold指令会从标准输入设备读取数据。1fold [-bs] [-w &amp;lt;每行列数&amp;gt;] [--help] [--version] [文件...]  -b或–bytes:以Byte为单位计算列宽, 而非">
 
 
 
@@ -340,59 +340,59 @@
  -->
 <h4 id="fold命令"><a href="#fold命令" class="headerlink" title="fold命令"></a>fold命令</h4><p>&emsp;&emsp;<code>folder</code>指令会从指定的文件里读取内容, 将超过限定列宽的列加入增列字符后, 输出到标准输出设备。若不指定任何文件名称, 或是所给予的文件名为<code>-</code>, 则<code>fold</code>指令会从标准输入设备读取数据。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fold [-bs] [-w &lt;每行列数&gt;] [--help] [--version] [文件...]</span><br></pre></td></tr></table></figure></p>
 <ul>
-<li><code>-b</code>或<code>—bytes</code>:以<code>Byte</code>为单位计算列宽, 而非采用列数编号为单位。</li>
-<li><code>-s</code>或<code>—spaces</code>:以空格字符作为换列点。</li>
-<li><code>&lt;每行列数&gt;-w&lt;每行列数&gt;</code>或<code>—width &lt;每行列数&gt;</code>:设置每行的最大列数。</li>
-<li><code>—help</code>:在线帮助。</li>
-<li><code>—version</code>:显示版本信息。<br>将一个名为<code>testfile</code>的文件的行折叠成宽度为<code>30</code>, 可使用如下命令:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fold -w 30 testfile</span><br></pre></td></tr></table></figure>
+<li><code>-b</code>或<code>–bytes</code>:以<code>Byte</code>为单位计算列宽, 而非采用列数编号为单位。</li>
+<li><code>-s</code>或<code>–spaces</code>:以空格字符作为换列点。</li>
+<li><code>&lt;每行列数&gt;-w&lt;每行列数&gt;</code>或<code>–width &lt;每行列数&gt;</code>:设置每行的最大列数。</li>
+<li><code>–help</code>:在线帮助。</li>
+<li><code>–version</code>:显示版本信息。<br>将一个名为<code>testfile</code>的文件的行折叠成宽度为<code>30</code>, 可使用如下命令:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fold -w 30 testfile</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>为了对比，先将<code>testfile</code>文件输出如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">$ cat testfile  # 查看testfile中的内容</span><br><span class="line">Linux networks are becoming more and more common, but</span><br><span class="line">security is often an overlooked</span><br><span class="line">issue. Unfortunately, in today’s environment all networks</span><br><span class="line">are potential hacker targets,</span><br><span class="line">from top-secret military research networks to small home LANs.</span><br><span class="line">Linux Network Security focuses on securing Linux in a</span><br><span class="line">networked environment, where the</span><br><span class="line">security of the entire network needs to be considered</span><br><span class="line">rather than just isolated machines.</span><br><span class="line">It uses a mix of theory and practical techniques to</span><br><span class="line">teach administrators how to install and</span><br><span class="line">use security applications, as well as how the</span><br><span class="line">applications work and why they are necessary.</span><br></pre></td></tr></table></figure></p>
 <p>然后使用<code>fold</code>命令折叠显示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">$ fold -w 30 testfile  # 行折叠成宽度为30，显示testfile文件</span><br><span class="line">Linux networks are becoming mo</span><br><span class="line">re and more common, but securi</span><br><span class="line">ty is often an overlooked issu</span><br><span class="line">e. Unfortunately, in today’s</span><br><span class="line">environment all networks are</span><br><span class="line">potential hacker targets, from</span><br><span class="line">top-secret military research</span><br><span class="line">networks to small home LANs.</span><br><span class="line">Linux Network Security focuses</span><br><span class="line">on securing Linux in a networ</span><br><span class="line">ked environment, where the sec</span><br><span class="line">urity of the entire network ne</span><br><span class="line">eds to be considered rather th</span><br><span class="line">an just isolated machines. It</span><br><span class="line">uses a mix of theory and pract</span><br><span class="line">ical techniques to teach admin</span><br><span class="line">istrators how to install and u</span><br><span class="line">se security applications, as w</span><br><span class="line">ell as how the applications wo</span><br><span class="line">rk and why they are necessary</span><br></pre></td></tr></table></figure></p>
-<h4 id="fmt命令"><a href="#fmt命令" class="headerlink" title="fmt命令"></a>fmt命令</h4><p>&emsp;&emsp;<code>fmt</code>指令会从指定的文件里读取内容, 将其依照指定格式重新编排后, 输出到标准输出设备。若指定的文件名为<code>-</code>, 则<code>fmt</code>指令会从标准输入设备读取数据。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fmt [-cstu] [-w &lt;每行字符数&gt;] [--help] [--version] [文件...]</span><br></pre></td></tr></table></figure></p>
+<p>####fmt命令<br>&emsp;&emsp;<code>fmt</code>指令会从指定的文件里读取内容, 将其依照指定格式重新编排后, 输出到标准输出设备。若指定的文件名为<code>-</code>, 则<code>fmt</code>指令会从标准输入设备读取数据。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fmt [-cstu] [-w &lt;每行字符数&gt;] [--help] [--version] [文件...]</span><br></pre></td></tr></table></figure></p>
 <ul>
-<li><code>-c</code>或<code>—crown-margin</code>:每段前两列缩排。</li>
-<li><code>-s</code>或<code>—split-only</code>:只拆开字数超出每列字符数的行, 但不合并字数不足每列字符数的行。</li>
-<li><code>-t</code>或<code>—tagged-paragraph</code>:每列前两列缩排, 但第1列和第2列的缩排格式不同。</li>
-<li><code>-u</code>或<code>—uniform-spacing</code>:每个字符之间都以一个空格字符间隔, 每个句子之间则两个空格字符分隔。</li>
+<li><code>-c</code>或<code>–crown-margin</code>:每段前两列缩排。</li>
+<li><code>-s</code>或<code>–split-only</code>:只拆开字数超出每列字符数的行, 但不合并字数不足每列字符数的行。</li>
+<li><code>-t</code>或<code>–tagged-paragraph</code>:每列前两列缩排, 但第1列和第2列的缩排格式不同。</li>
+<li><code>-u</code>或<code>–uniform-spacing</code>:每个字符之间都以一个空格字符间隔, 每个句子之间则两个空格字符分隔。</li>
 <li><code>-w &lt;每行字符数&gt;</code>:设置每行的最大字符数。</li>
-<li><code>—help</code>:在线帮助。</li>
-<li><code>—version</code>:显示版本信息。<br>先使用<code>cat</code>命令查看文件内容:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ cat testfile  # 查看testfile文件的内容</span><br><span class="line">hello Linux!</span><br><span class="line">Linux is a free Unix-type operating system.</span><br><span class="line">This is a Linux testfile!</span><br><span class="line">Linux</span><br><span class="line">Linux</span><br></pre></td></tr></table></figure>
+<li><code>–help</code>:在线帮助。</li>
+<li><code>–version</code>:显示版本信息。<br>先使用<code>cat</code>命令查看文件内容:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ cat testfile  # 查看testfile文件的内容</span><br><span class="line">hello Linux!</span><br><span class="line">Linux is a free Unix-type operating system.</span><br><span class="line">This is a Linux testfile!</span><br><span class="line">Linux</span><br><span class="line">Linux</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>使用fmt命令重排之后，输出结果如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ fmt -w 85 testfile  # 指定重排宽度为85个字符</span><br><span class="line">hello Linux! Linux is a free Unix-type operating system. This is a Linux testfile!</span><br><span class="line">Linux Linux</span><br></pre></td></tr></table></figure></p>
 <h4 id="rev命令"><a href="#rev命令" class="headerlink" title="rev命令"></a>rev命令</h4><p>&emsp;&emsp;<code>rev</code>命令将文件中的每行内容以字符为单位反序输出, 即第一个字符最后输出, 最后一个字符最先输出, 依次类推.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rev [参数]</span><br><span class="line">参数为指定要反序显示内容的文件.</span><br></pre></td></tr></table></figure></p>
-<h4 id="pr命令"><a href="#pr命令" class="headerlink" title="pr命令"></a>pr命令</h4><p>&emsp;&emsp;将文本文件内容转换成适合打印的格式:</p>
+<p>####pr命令<br>&emsp;&emsp;将文本文件内容转换成适合打印的格式:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pr [选项] [文件]</span><br></pre></td></tr></table></figure>
 <ul>
-<li><code>+首页[:末页]、—pages=首页[:末页]</code>: 在指定的首页/末页处开始/停止打印.</li>
-<li><code>-列数、—columns=列数</code>: 输出指定的列数. 如果指定了<code>-a</code>选项, 则从上到下列印. 程序会自动在每一页均衡每列占用的行数.</li>
-<li><code>-a、—across</code>: 设置每列从上到下输出, 配合<code>-</code>列数选项一起使用.</li>
-<li><code>-c、—show-control-chars</code>: 使用头标<code>^G</code>和八进制反斜杠标记。</li>
-<li><code>-d、—double-space</code>: 加倍输出空白区域。</li>
-<li><code>-D、—date-format=格式</code>: 使用遵循指定格式的页眉日期.</li>
-<li><code>-e[字符[宽度]]、—expand-tabs[=字符[宽度]]</code>:扩展输入的字符<code>(TAB)</code>到制表符宽度<code>(8)</code>.</li>
-<li><code>-F、-f、—form-feed</code>: 使用出纸页页标代替新行作为页面间的分隔符(使用<code>-F</code>选项时报头为<code>3</code>行, 不使用时为<code>5</code>行).</li>
-<li><code>-h、—header=页眉</code>: 在页眉中使用居中的指定字符代替文件名, <code>-h “”输出一个空行, 不要使用-h””</code>.</li>
-<li><code>-i[字符[宽度]]、—output-tabs[=字符[宽度]]</code>:使用指定字符<code>(或TAB)</code>代替空格不足到指定制表符宽度<code>(默认8)</code>.</li>
-<li><code>-J、—join-lines</code>: 合并整个行, 关闭<code>-W</code>选项的行截断, 不使用栏调整, 使用<code>—sep-string[=字符串]</code>设置分隔符.</li>
-<li><code>-l、—length=页长</code>: 使用指定页长的行数<code>(默认66)</code>(默认文本行数为56，当启用-F时为63).</li>
-<li><code>-m、—merge</code>: 在同一行显示所有文件, 每个文件占用一栏, 分割行, 但是当使用<code>-J</code>时将行合并到完整长度.</li>
-<li><code>-n[分隔符[位数]]、—number-lines[=分隔符[位数]]</code>:显示行号, 使用指定<code>(默认5)</code>位数, 后接分隔符<code>(默认TABM)</code>, 默认从输入文件的第一行开始计数.</li>
-<li><code>-N、—first-line-number=数字</code>: 从首页的首行以指定数字开始计数.</li>
-<li><code>-o、—indent=缩进量</code>: 将每行缩进<code>(默认0)</code>个空格, 不影响<code>-w或-W</code>参数, 缩进量的值将被加入页面宽度.</li>
-<li><code>-r、—no-file-warnings</code>: 当文件无法打开时忽略警告.</li>
-<li><code>-s[CHAR]、—separator[=CHAR]</code>: 由单个字符分隔各列, 未附加<code>-w</code>时默认为制表符, 否则为空. 另外除非<code>-w</code>选项被指定，否则<code>-s[CHAR]</code>会屏蔽三个列相关的截行选项<code>(-COLUMN|-a -COLUMN|-m)</code>.</li>
-<li><code>-S字符串、—sep-string[=字符串]</code>: 使用指定的字符串分栏, 不使用<code>-S</code>则使用默认的制表符<code>TAB</code>作为分隔符, 与<code>-J</code>和空格一起使用<code>(等于-S” “)</code>对分栏选项无影响.</li>
-<li><code>-t、—omit-header</code>: 忽略页眉和页脚.</li>
-<li><code>-T、—omit-pagination</code>: 按照输入文件中的设置忽略页眉和页脚并除去所有分页记号.</li>
-<li><code>-v、—show-nonprinting</code>: 使用八进制反斜杠标记.</li>
-<li><code>-w、—width=页面宽度</code>: 为多栏页面输出将设置为指定的字符数<code>(默认72)</code>, 仅当<code>-s[char]</code>选项不启用时有效<code>(即保持默认值72)</code>.</li>
-<li><code>-W、—page-width=页宽</code>: 总是将页宽设置为指定的<code>(默认72)</code>字符数，除非<code>-J</code>选项启用总是截断行, 此参数与<code>-S</code>或<code>-s</code>冲突.</li>
-<li><code>—help</code>: 显示此帮助信息并退出.</li>
-<li><code>—version</code>: 显示版本信息并退出.<br>如果页长小于等于<code>10</code>, 则使用<code>-t</code>选项. 如果<code>FILE</code>没有定义或者<code>FILE</code>是<code>-</code>, 则从标准输入读入.</li>
+<li><code>+首页[:末页]、–pages=首页[:末页]</code>: 在指定的首页/末页处开始/停止打印.</li>
+<li><code>-列数、–columns=列数</code>: 输出指定的列数. 如果指定了<code>-a</code>选项, 则从上到下列印. 程序会自动在每一页均衡每列占用的行数.</li>
+<li><code>-a、–across</code>: 设置每列从上到下输出, 配合<code>-</code>列数选项一起使用.</li>
+<li><code>-c、–show-control-chars</code>: 使用头标<code>^G</code>和八进制反斜杠标记。</li>
+<li><code>-d、–double-space</code>: 加倍输出空白区域。</li>
+<li><code>-D、–date-format=格式</code>: 使用遵循指定格式的页眉日期.</li>
+<li><code>-e[字符[宽度]]、–expand-tabs[=字符[宽度]]</code>:扩展输入的字符<code>(TAB)</code>到制表符宽度<code>(8)</code>.</li>
+<li><code>-F、-f、–form-feed</code>: 使用出纸页页标代替新行作为页面间的分隔符(使用<code>-F</code>选项时报头为<code>3</code>行, 不使用时为<code>5</code>行).</li>
+<li><code>-h、–header=页眉</code>: 在页眉中使用居中的指定字符代替文件名, <code>-h “”输出一个空行, 不要使用-h””</code>.</li>
+<li><code>-i[字符[宽度]]、–output-tabs[=字符[宽度]]</code>:使用指定字符<code>(或TAB)</code>代替空格不足到指定制表符宽度<code>(默认8)</code>.</li>
+<li><code>-J、–join-lines</code>: 合并整个行, 关闭<code>-W</code>选项的行截断, 不使用栏调整, 使用<code>–sep-string[=字符串]</code>设置分隔符.</li>
+<li><code>-l、–length=页长</code>: 使用指定页长的行数<code>(默认66)</code>(默认文本行数为56，当启用-F时为63).</li>
+<li><code>-m、–merge</code>: 在同一行显示所有文件, 每个文件占用一栏, 分割行, 但是当使用<code>-J</code>时将行合并到完整长度.</li>
+<li><code>-n[分隔符[位数]]、–number-lines[=分隔符[位数]]</code>:显示行号, 使用指定<code>(默认5)</code>位数, 后接分隔符<code>(默认TABM)</code>, 默认从输入文件的第一行开始计数.</li>
+<li><code>-N、–first-line-number=数字</code>: 从首页的首行以指定数字开始计数.</li>
+<li><code>-o、–indent=缩进量</code>: 将每行缩进<code>(默认0)</code>个空格, 不影响<code>-w或-W</code>参数, 缩进量的值将被加入页面宽度.</li>
+<li><code>-r、–no-file-warnings</code>: 当文件无法打开时忽略警告.</li>
+<li><code>-s[CHAR]、–separator[=CHAR]</code>: 由单个字符分隔各列, 未附加<code>-w</code>时默认为制表符, 否则为空. 另外除非<code>-w</code>选项被指定，否则<code>-s[CHAR]</code>会屏蔽三个列相关的截行选项<code>(-COLUMN|-a -COLUMN|-m)</code>.</li>
+<li><code>-S字符串、–sep-string[=字符串]</code>: 使用指定的字符串分栏, 不使用<code>-S</code>则使用默认的制表符<code>TAB</code>作为分隔符, 与<code>-J</code>和空格一起使用<code>(等于-S” “)</code>对分栏选项无影响.</li>
+<li><code>-t、–omit-header</code>: 忽略页眉和页脚.</li>
+<li><code>-T、–omit-pagination</code>: 按照输入文件中的设置忽略页眉和页脚并除去所有分页记号.</li>
+<li><code>-v、–show-nonprinting</code>: 使用八进制反斜杠标记.</li>
+<li><code>-w、–width=页面宽度</code>: 为多栏页面输出将设置为指定的字符数<code>(默认72)</code>, 仅当<code>-s[char]</code>选项不启用时有效<code>(即保持默认值72)</code>.</li>
+<li><code>-W、–page-width=页宽</code>: 总是将页宽设置为指定的<code>(默认72)</code>字符数，除非<code>-J</code>选项启用总是截断行, 此参数与<code>-S</code>或<code>-s</code>冲突.</li>
+<li><code>–help</code>: 显示此帮助信息并退出.</li>
+<li><code>–version</code>: 显示版本信息并退出.<br>如果页长小于等于<code>10</code>, 则使用<code>-t</code>选项. 如果<code>FILE</code>没有定义或者<code>FILE</code>是<code>-</code>, 则从标准输入读入.</li>
 </ul>
-<h4 id="sort命令"><a href="#sort命令" class="headerlink" title="sort命令"></a>sort命令</h4><p>&emsp;&emsp;<code>sort</code>命令是依据不同的数据类型进行排序:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sort [-bcfMnrtk] [源文件] [-o 输出文件]</span><br></pre></td></tr></table></figure></p>
+<p>####sort命令<br>&emsp;&emsp;<code>sort</code>命令是依据不同的数据类型进行排序:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sort [-bcfMnrtk] [源文件] [-o 输出文件]</span><br></pre></td></tr></table></figure></p>
 <p><code>sort</code>可针对文本文件的内容以行为单位来排序.</p>
 <ul>
 <li><code>-b</code>:忽略每行前面开始出的空格字符.</li>
@@ -426,15 +426,15 @@
 </ul>
 <h4 id="wc命令"><a href="#wc命令" class="headerlink" title="wc命令"></a>wc命令</h4><p>&emsp;&emsp;利用<code>wc</code>命令我们可以计算文件的<code>Byte</code>数、字数、或是列数. 若不指定文件名称、或是所给予的文件名为<code>,</code>则<code>wc</code>命令会从标准输入设备读取数据.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wc [-clw] [--help] [--version] [文件...]</span><br></pre></td></tr></table></figure></p>
 <ul>
-<li><code>-c、—bytes或—chars</code>:只显示<code>Bytes</code>数.</li>
-<li><code>-l</code>或<code>—lines</code>:只显示列数.</li>
-<li><code>-w</code>或<code>—words</code>:只显示字数.</li>
-<li><code>—help</code>:在线帮助.</li>
-<li><code>—version</code>:显示版本信息.<br>先查看<code>testfile</code>文件的内容:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ cat testfile</span><br><span class="line">Linux networks are becoming more and more common, but scurity is often an overlooked</span><br><span class="line">issue. Unfortunately, in today’s environment all networks are potential hacker targets,</span><br><span class="line">fro0m tp-secret military research networks to small home LANs.</span><br><span class="line">Linux Network Securty focuses on securing Linux in a networked environment, where the</span><br><span class="line">security of the entire network needs to be considered rather than just isolated machines.</span><br><span class="line">It uses a mix of theory and practicl techniques to teach administrators how to install and</span><br><span class="line">use security applications, as well as how the applcations work and why they are necesary.</span><br></pre></td></tr></table></figure>
+<li><code>-c、–bytes或–chars</code>:只显示<code>Bytes</code>数.</li>
+<li><code>-l</code>或<code>–lines</code>:只显示列数.</li>
+<li><code>-w</code>或<code>–words</code>:只显示字数.</li>
+<li><code>–help</code>:在线帮助.</li>
+<li><code>–version</code>:显示版本信息.<br>先查看<code>testfile</code>文件的内容:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ cat testfile</span><br><span class="line">Linux networks are becoming more and more common, but scurity is often an overlooked</span><br><span class="line">issue. Unfortunately, in today’s environment all networks are potential hacker targets,</span><br><span class="line">fro0m tp-secret military research networks to small home LANs.</span><br><span class="line">Linux Network Securty focuses on securing Linux in a networked environment, where the</span><br><span class="line">security of the entire network needs to be considered rather than just isolated machines.</span><br><span class="line">It uses a mix of theory and practicl techniques to teach administrators how to install and</span><br><span class="line">use security applications, as well as how the applcations work and why they are necesary.</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>使用<code>wc</code>统计:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ wc testfile  # testfile文件的统计信息</span><br><span class="line">3 92 598 testfile  # testfile文件的行数为3、单词数92、字节数598</span><br></pre></td></tr></table></figure></p>
-<h4 id="cut命令"><a href="#cut命令" class="headerlink" title="cut命令"></a>cut命令</h4><p>&emsp;&emsp;<code>cut</code>是一个选取命令, 就是将一段数据经过分析, 取出我们想要的. 一般来说, 选取信息通常是针对行来进行分析的, 并不是整篇信息分析的.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cut [-bn] [file]</span><br><span class="line">cut [-c] [file]</span><br><span class="line">cut [-df] [file]</span><br></pre></td></tr></table></figure></p>
+<p>####cut命令<br>&emsp;&emsp;<code>cut</code>是一个选取命令, 就是将一段数据经过分析, 取出我们想要的. 一般来说, 选取信息通常是针对行来进行分析的, 并不是整篇信息分析的.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cut [-bn] [file]</span><br><span class="line">cut [-c] [file]</span><br><span class="line">cut [-df] [file]</span><br></pre></td></tr></table></figure></p>
 <p><code>cut</code>命令从文件的每一行剪切字节、字符和字段并将这些内容写至标准输出. 如果不指定<code>File</code>参数, <code>cut</code>命令将读取标准输入.</p>
 <ul>
 <li><code>-b</code>:以字节为单位进行分割. 这些字节位置将忽略多字节字符边界, 除非也指定了<code>-n</code>标志.</li>
@@ -447,12 +447,12 @@
 <p>cut -b 3  # 如果想提取每一行的第3个字节<br>cut -b 3-5,8  # 如果想提取第3、第4、第5和第8个字节，注意顺序不能颠倒<br>cut -b -3  # 表示从第一个字节到第三个字节<br>cut -b 3-  # 表示从第三个字节到行尾<br>当遇到多字节字符时, 可以使用<code>-n</code>选项, <code>-n</code>用于告诉<code>cut</code>不要将多字节字符拆开.<br>  为什么会有域的提取呢？因为刚才提到的-b和-c只能在固定格式的文档中提取信息, 而对于非固定格式的信息则束手无策,这时候域就派上用场了. 如果你观察过/etc/passwd文件就会发现, 它并不像who的输出信息那样具有固定格式, 而是比较零散的排放. 但是冒号在这个文件的每一行中都起到了非常重要的作用, 冒号用来隔开每一个项.<br>  <code>cut</code>命令提供了这样的提取方式, 具体的说就是设置间隔符, 再设置提取第几个域就OK了. 以/etc/passwd的前五行内容为例:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ cat /etc/passwd | head -n 5</span><br><span class="line">root:x:0:0:root:/root:/bin/bash</span><br><span class="line">bin:x:1:1:bin:/bin:/sbin/nologin</span><br><span class="line">daemon:x:2:2:daemon:/sbin:/sbin/nologin</span><br><span class="line">adm:x:3:4:adm:/var/adm:/sbin/nologin</span><br><span class="line">lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin</span><br></pre></td></tr></table></figure></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ cat /etc/passwd | head -n 5 | cut -d : -f 1</span><br><span class="line">root</span><br><span class="line">bin</span><br><span class="line">daemon</span><br><span class="line">adm</span><br><span class="line">lp</span><br></pre></td></tr></table></figure>
 <p>用<code>-d</code>来设置间隔符为冒号, 然后用<code>-f</code>来设置要取的是第一个域, 于是所有的用户名就都列出来了！当然, 在设定<code>-f</code>时也可以使用例如3-5或者4-类似的格式.</p>
-<h4 id="paste命令"><a href="#paste命令" class="headerlink" title="paste命令"></a>paste命令</h4><p>&emsp;&emsp;<code>paste</code>命令会把每个文件以列对列的方式, 一列列地加以合并.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">paste [-s] [-d &lt;间隔字符&gt;] [--help] [--version] [文件]</span><br></pre></td></tr></table></figure></p>
+<p>####paste命令<br>&emsp;&emsp;<code>paste</code>命令会把每个文件以列对列的方式, 一列列地加以合并.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">paste [-s] [-d &lt;间隔字符&gt;] [--help] [--version] [文件]</span><br></pre></td></tr></table></figure></p>
 <ul>
-<li><code>-d &lt;间隔字符&gt;或—delimiters=&lt;间隔字符&gt;</code>:用指定的间隔字符取代跳格字符.</li>
-<li><code>-s或—serial</code>:串列进行而非平行处理。</li>
-<li><code>—help</code>:在线帮助。</li>
-<li><code>—version</code>:显示帮助信息。<br>使用<code>paste</code>指令将文件<code>file、testfile和testfile1</code>进行合并. 首先使用<code>cat</code>命令查看3个文件内容:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ cat file  # file文件的内容</span><br><span class="line">xiongdan 200</span><br><span class="line">lihaihui 233</span><br><span class="line">lymlrl 231</span><br><span class="line">$ cat testfile  # testfile文件的内容</span><br><span class="line">liangyuanm  ss</span><br><span class="line">$ cat testfile1  # testfile1文件的内容</span><br><span class="line">huanggai 56</span><br><span class="line">zhixi 73</span><br></pre></td></tr></table></figure>
+<li><code>-d &lt;间隔字符&gt;或–delimiters=&lt;间隔字符&gt;</code>:用指定的间隔字符取代跳格字符.</li>
+<li><code>-s或–serial</code>:串列进行而非平行处理。</li>
+<li><code>–help</code>:在线帮助。</li>
+<li><code>–version</code>:显示帮助信息。<br>使用<code>paste</code>指令将文件<code>file、testfile和testfile1</code>进行合并. 首先使用<code>cat</code>命令查看3个文件内容:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ cat file  # file文件的内容</span><br><span class="line">xiongdan 200</span><br><span class="line">lihaihui 233</span><br><span class="line">lymlrl 231</span><br><span class="line">$ cat testfile  # testfile文件的内容</span><br><span class="line">liangyuanm  ss</span><br><span class="line">$ cat testfile1  # testfile1文件的内容</span><br><span class="line">huanggai 56</span><br><span class="line">zhixi 73</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>当合并指令执行后, 程序界面中将显示合并后的文件内容:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">xiongdan 200</span><br><span class="line">lihaihui 233</span><br><span class="line">lymlrl 231</span><br><span class="line">liangyuanm  ss</span><br><span class="line">huanggai 56</span><br><span class="line">zhixi 73</span><br></pre></td></tr></table></figure></p>
@@ -461,16 +461,16 @@
 <p>注意, 参数<code>-s</code>只是将<code>testfile</code>文件的内容调整显示方式, 并不会改变原文件的内容格式.</p>
 <h4 id="join命令"><a href="#join命令" class="headerlink" title="join命令"></a>join命令</h4><p>&emsp;&emsp;<code>join</code>命令用于将两个文件中指定列位内容相同的行加以合并, 再输出到标准输出设备:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">join [-i] [-a&lt;1或2&gt;] [-e &lt;字符串&gt;] [-o &lt;格式&gt;] [-t &lt;字符&gt;] [-v &lt;1或2&gt;] \</span><br><span class="line">     [-1 &lt;列位&gt;] [-2 &lt;列位&gt;] [--help] [--version] [文件1] [文件2]</span><br></pre></td></tr></table></figure></p>
 <ul>
-<li><code>-a <1或2></1或2></code>: 除了显示原来的输出内容之外, 还显示指令文件中没有相同栏位的行.</li>
+<li><code>-a &lt;1或2&gt;</code>: 除了显示原来的输出内容之外, 还显示指令文件中没有相同栏位的行.</li>
 <li><code>-e &lt;字符串&gt;</code>: 若文件1与文件2中找不到指定的栏位, 则在输出中填入选项中的字符串.</li>
-<li><code>-i或—igore-case</code>: 比较栏位内容时, 忽略大小写的差异.</li>
+<li><code>-i或–igore-case</code>: 比较栏位内容时, 忽略大小写的差异.</li>
 <li><code>-o &lt;格式&gt;</code>: 按照指定的格式来显示结果.</li>
 <li><code>-t &lt;字符&gt;</code>: 使用栏位的分隔字符.</li>
-<li><code>-v <1或2></1或2></code>: 跟<code>-a</code>相同, 但是只显示文件中没有相同栏位的行.</li>
+<li><code>-v &lt;1或2&gt;</code>: 跟<code>-a</code>相同, 但是只显示文件中没有相同栏位的行.</li>
 <li><code>-1 &lt;列位&gt;</code>: 连接文件1指定的栏位.</li>
 <li><code>-2 &lt;列位&gt;</code>: 连接文件2指定的栏位.</li>
-<li><code>—help</code>: 显示帮助.</li>
-<li><code>—version</code>: 显示版本信息.<br>  首先查看<code>testfile_1、testfile_2</code>中的文件内容:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ cat testfile_1  # testfile_1文件中的内容</span><br><span class="line">Hello 95  # 例如, 本例中第一列为姓名, 第二列为数额</span><br><span class="line">Linux 85</span><br><span class="line">test 30</span><br></pre></td></tr></table></figure>
+<li><code>–help</code>: 显示帮助.</li>
+<li><code>–version</code>: 显示版本信息.<br>  首先查看<code>testfile_1、testfile_2</code>中的文件内容:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ cat testfile_1  # testfile_1文件中的内容</span><br><span class="line">Hello 95  # 例如, 本例中第一列为姓名, 第二列为数额</span><br><span class="line">Linux 85</span><br><span class="line">test 30</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ cat testfile_2  # testfile_2文件中的内容</span><br><span class="line">Hello 2005  # 例如, 本例中第一列为姓名, 第二列为年份</span><br><span class="line">Linux 2009</span><br><span class="line">test 2006</span><br></pre></td></tr></table></figure>
@@ -490,14 +490,14 @@
 <li><code>[A-Z]</code>: <code>A</code>至<code>Z</code>内的字符组成的字符串.</li>
 <li><code>[0-9]</code>: 数字串.</li>
 <li><code>\octal</code>:一个三位的八进制数, 对应有效的<code>ASCII</code>字符.</li>
-<li><code>[O*n]</code>:表示字符<code>O</code>重复出现指定次数<code>n</code>, 因此<code>[O*2]</code>匹配<code>OO</code>的字符串.</li>
+<li><code>[O<em>n]</em></code>:表示字符<code>O</code>重复出现指定次数<code>n</code>, 因此<code>[O2]</code>匹配<code>OO</code>的字符串.</li>
 </ul>
 <ol>
 <li>将文件<code>file</code>中出现的<code>abc</code>替换为<code>xyz</code>:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat file | tr &quot;abc&quot; &quot;xyz&quot; &gt; new_file</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>注意，这里凡是在<code>file</code>中出现的<code>a</code>都替换成x, b替换为y, c替换为z, 而不是将字符串abc替换为字符串xyz.</p>
-<ol>
+<ol start="2">
 <li><p>使用<code>tr</code>命令统一字母大小写:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat file | tr [a-z] [A-Z] &gt; new_file  # 小写 -&gt; 大写</span><br><span class="line">cat file | tr [A-Z] [a-z] &gt; new_file  # 大写 -&gt; 小写</span><br></pre></td></tr></table></figure>
 </li>
@@ -509,12 +509,12 @@
 </li>
 </ol>
 <p>注意，这里凡是在<code>file</code>文件中出现的<code>S、n、a、i和l</code>字符都会被删除, 而不是仅仅删除出现的<code>Snail</code>字符串.</p>
-<ol>
+<ol start="5">
 <li>删除文件<code>file</code>中出现的换行\n、制表\t字符:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat file | tr -d &quot;\n\t&quot; &gt; new_file</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>不可见字符都得用转义字符来表示的, 这个都是统一的.</p>
-<ol>
+<ol start="6">
 <li><p>删除连续的重复字母, 只保留第一个:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat file | tr -s [a-zA-Z] &gt; new_file</span><br></pre></td></tr></table></figure>
 </li>
@@ -526,12 +526,12 @@
 </li>
 </ol>
 <p>注意，这里<code>-s</code>后面是两个参数<code>\r和\n</code>, 用后者替换前者.</p>
-<ol>
-<li>用空格符<code>\040</code>替换制表符<codde>\011&lt;/code&gt;:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat file | tr -s &quot;\011&quot; &quot;\040&quot; &gt; new_file</span><br></pre></td></tr></table></figure>
+<ol start="9">
+<li>用空格符<code>\040</code>替换制表符<codde>\011:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat file | tr -s &quot;\011&quot; &quot;\040&quot; &gt; new_file</span><br></pre></td></tr></table></figure>
 </codde></li>
 </ol>
 <p>  </p>
-<ol>
+<ol start="10">
 <li>把路径变量中的冒号<code>:</code>替换成换行符<code>\n</code>:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo $PATH | tr -s &quot;:&quot; &quot;\n&quot;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
@@ -568,6 +568,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/08/20/Linux-基本文本处理/" rel="prev" title="Linux --基本文本处理">
+                Linux --基本文本处理 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -644,7 +648,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -681,7 +685,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#fold命令"><span class="nav-number">1.</span> <span class="nav-text">fold命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#fmt命令"><span class="nav-number">2.</span> <span class="nav-text">fmt命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#rev命令"><span class="nav-number">3.</span> <span class="nav-text">rev命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#pr命令"><span class="nav-number">4.</span> <span class="nav-text">pr命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sort命令"><span class="nav-number">5.</span> <span class="nav-text">sort命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#wc命令"><span class="nav-number">6.</span> <span class="nav-text">wc命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#cut命令"><span class="nav-number">7.</span> <span class="nav-text">cut命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#paste命令"><span class="nav-number">8.</span> <span class="nav-text">paste命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#join命令"><span class="nav-number">9.</span> <span class="nav-text">join命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tr命令"><span class="nav-number">10.</span> <span class="nav-text">tr命令</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#fold命令"><span class="nav-number">1.</span> <span class="nav-text">fold命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#rev命令"><span class="nav-number">2.</span> <span class="nav-text">rev命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#wc命令"><span class="nav-number">3.</span> <span class="nav-text">wc命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#join命令"><span class="nav-number">4.</span> <span class="nav-text">join命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tr命令"><span class="nav-number">5.</span> <span class="nav-text">tr命令</span></a></li></ol></div>
             
 
           </div>

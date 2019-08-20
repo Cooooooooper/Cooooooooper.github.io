@@ -261,6 +261,224 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/20/Linux-基本文本处理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Coper">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="张添豪的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/20/Linux-基本文本处理/" itemprop="url">Linux --基本文本处理</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-20T15:48:47+08:00">
+                2019-08-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <!--
+ * @Description: In User Settings Edit#
+ * @Author: your name
+ * @Date: 2019-08-19 16:55:11
+ * @LastEditTime: 2019-08-20 15:51:32
+ * @LastEditors: Please set LastEditors
+ -->
+<h4 id="1-cd命令"><a href="#1-cd命令" class="headerlink" title="1.cd命令:"></a>1.cd命令:</h4><p>这是一个非常基本, 也是大家经常需要使用的命令, 它用于<strong>切换当前目录</strong>, 它的参数是要切换到的目录的路径, 可以是绝对路径, 也可以是相对路.如:</p>
+<ul>
+<li><code>cd /root/Docements</code> 切换到目录<code>/root/Docements</code></li>
+<li><code>cd ./path</code> 切换到当前目录下的<code>path</code>目录中, <code>“.”</code>表示当前目录  </li>
+<li><code>cd ../path</code> 切换到上层目录中的<code>path</code>目录中, <code>“..”</code>表示上一层目录</li>
+<li><code>cd ..</code> 返回上一级</li>
+<li><code>cd -</code> 返回上次所在目录</li>
+<li><code>cd /</code> 返回根目录(绝对路径)</li>
+</ul>
+<h4 id="2-ls命令"><a href="#2-ls命令" class="headerlink" title="2.ls命令:"></a>2.ls命令:</h4><p>这是一个非常有用的<strong>查看文件与目录的命令</strong>, <code>list</code>之意, 它的参数非常多, 下面就列出一些我常用的参数吧, 如下:</p>
+<ul>
+<li><code>-l</code> : 列出长数据串, 包含文件的属性与权限数据等</li>
+<li><code>-a</code> : 列出全部的文件, 连同隐藏文件(开头为.的文件)一起列出来(常用)</li>
+<li><code>-d</code> : 仅列出目录本身, 而不是列出目录的文件数据</li>
+<li><code>-h</code> : 将文件容量以较易读的方式(GB，kB等)列出来</li>
+<li><code>-R</code> : 连同子目录的内容一起列出(递归列出), 等于该目录下的所有文件都会显示出来</li>
+</ul>
+<p>注: 这些参数也可以组合使用,下面举两个例子:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ls -l # 以长数据串的形式列出当前目录下的数据文件和目录</span><br><span class="line">ls -lR # 以长数据串的形式列出当前目录下的所有文件</span><br></pre></td></tr></table></figure></p>
+<h4 id="3-grep命令"><a href="#3-grep命令" class="headerlink" title="3.grep命令"></a>3.grep命令</h4><p>该命令常用于分析一行的信息,<strong>显示找到指定信息</strong>, 若当中有我们所需要的信息, 就将该行显示出来, 该命令通常与管道命令一起使用, 用于对一些命令的输出进行筛选加工等等, 它的简单语法为:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep [-acinv] [--color=auto] &apos;查找字符串&apos; filename</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><code>-a</code> : 将<code>binary</code>文件以<code>text</code>文件的方式查找数据</li>
+<li><code>-c</code> : 计算找到‘查找字符串’的次数</li>
+<li><code>-i</code> :忽略大小写的区别, 即把大小写视为相同</li>
+<li><code>-v</code> :反向选择, 即显示出没有‘查找字符串’内容的那一行<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 取出文件/etc/man.config中包含MANPATH的行，并把找到的关键字加上颜色</span><br><span class="line">grep --color=auto &apos;MANPATH&apos; /etc/man.config</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 把ls -l的输出中包含字母file（不区分大小写）的内容输出</span><br><span class="line">ls -l | grep -i file</span><br></pre></td></tr></table></figure>
+<h4 id="4-find命令"><a href="#4-find命令" class="headerlink" title="4.find命令"></a>4.find命令</h4><p>find是一个基于<strong>查找的功能</strong>非常强大的命令, 相对而言, 它的使用也相对较为复杂, 参数也比较多, 所以在这里将给把它们分类列出, 它的基本语法如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">find [PATH] [option] [action]</span><br><span class="line">```` </span><br><span class="line">##### 与时间有关的参数：</span><br><span class="line">&lt;code&gt;-mtime n&lt;/code&gt; : &lt;code&gt;n&lt;/code&gt;为数字，意思为在&lt;code&gt;n&lt;/code&gt;天之前的&quot;一天内&quot;被更改过的文件;</span><br><span class="line">&lt;code&gt;-mtime +n&lt;/code&gt; : 列出在&lt;code&gt;n&lt;/code&gt;天之前(不含&lt;code&gt;n&lt;/code&gt;天本身)被更改过的文件名;</span><br><span class="line">&lt;code&gt;-mtime -n&lt;/code&gt; : 列出在&lt;code&gt;n&lt;/code&gt;天之内(含&lt;code&gt;n&lt;/code&gt;天本身)被更改过的文件名；</span><br><span class="line">&lt;code&gt;-newer file&lt;/code&gt; : 列出比&lt;code&gt;file&lt;/code&gt;还要新的文件名</span><br><span class="line">##### 例如:</span><br></pre></td></tr></table></figure></p>
+<p>find /root -mtime 0 # 在当前目录下查找今天之内有改动的文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">##### 与用户或用户组名有关的参数:</span><br><span class="line">&lt;code&gt;-user name&lt;/code&gt; : 列出文件所有者为&lt;code&gt;name&lt;/code&gt;的文件</span><br><span class="line">&lt;code&gt;-group name&lt;/code&gt; : 列出文件所属用户组为&lt;code&gt;name&lt;/code&gt;的文件</span><br><span class="line">&lt;code&gt;-uid n&lt;/code&gt; : 列出文件所有者为&lt;code&gt;用户ID&lt;/code&gt;为&lt;code&gt;n&lt;/code&gt;的文件</span><br><span class="line">&lt;code&gt;-gid n&lt;/code&gt; : 列出文件所属用户组为&lt;code&gt;用户组ID&lt;/code&gt;为&lt;code&gt;n&lt;/code&gt;的文件</span><br><span class="line">##### 例如:</span><br></pre></td></tr></table></figure></p>
+<p>find /home/ljianhui -user ljianhui # 在目录/home/ljianhui中找出所有者为ljianhui的文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">##### 与文件权限及名称有关的参数：</span><br><span class="line">* &lt;code&gt;-name filename&lt;/code&gt; : 找出文件名为&lt;code&gt;filename&lt;/code&gt;的文件</span><br><span class="line">* &lt;code&gt;-size [+-]SIZE&lt;/code&gt; : 找出比&lt;code&gt;SIZE&lt;/code&gt;还要大(+)或小(-)的文件</span><br><span class="line">* &lt;code&gt;-tpye TYPE&lt;/code&gt; : 查找文件的类型为&lt;code&gt;TYPE&lt;/code&gt;的文件, &lt;code&gt;TYPE&lt;/code&gt;的值主要有: &lt;code&gt;一般文件(f)、设备文件(b、c)、目录(d)、连接文件(l)、socket(s)、FIFO管道文件(p)&lt;/code&gt;;</span><br><span class="line">* &lt;code&gt;-perm mode&lt;/code&gt; : 查找文件权限刚好等于&lt;code&gt;mode&lt;/code&gt;的文件, &lt;code&gt;mode&lt;/code&gt;用数字表示, 如0755;</span><br><span class="line">* &lt;code&gt;-perm -mode&lt;/code&gt; : 查找文件权限必须要&lt;strong&gt;全部&lt;/strong&gt;包括&lt;code&gt;mode&lt;/code&gt;权限的文件, &lt;code&gt;mode&lt;/code&gt;用数字表示</span><br><span class="line">* &lt;code&gt;-perm +mode&lt;/code&gt; :查找文件权限包含&lt;strong&gt;任一&lt;/strong&gt;&lt;code&gt;mode&lt;/code&gt;的权限的文件, &lt;code&gt;mode&lt;/code&gt;用数字表示</span><br><span class="line">##### 例如:</span><br></pre></td></tr></table></figure></p>
+<p>find / -name passwd # 查找文件名为passwd的文件<br>find . -perm 0755 # 查找当前目录中文件权限的0755的文件<br>find . -size +12k # 查找当前目录中大于12KB的文件，注意c表示byte<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 5.cp命令</span><br><span class="line">该命令用于&lt;strong&gt;复制文件&lt;/strong&gt;, &lt;code&gt;copy&lt;/code&gt;之意, 它还可以把多个文件一次性地复制到一个目录下, 它的常用参数如下:</span><br><span class="line">* &lt;code&gt;-a&lt;/code&gt; : 将文件的特性一起复制</span><br><span class="line">* &lt;code&gt;-p&lt;/code&gt; : 连同文件的属性一起复制, 而非使用默认方式, 与-a相似, 常用于备份</span><br><span class="line">* &lt;code&gt;-i&lt;/code&gt; : 若目标文件已经存在时, 在覆盖时会先询问操作的进行</span><br><span class="line">* &lt;code&gt;-r&lt;/code&gt; : 递归持续复制, 用于目录的复制行为</span><br><span class="line">* &lt;code&gt;-u&lt;/code&gt; : 目标文件与源文件有差异时才会复制</span><br><span class="line"></span><br><span class="line">##### 例如:</span><br></pre></td></tr></table></figure></p>
+<p>cp -a file1 file2 #连同文件的所有特性把文件file1复制成文件file2<br>cp file1 file2 file3 dir #把文件file1、file2、file3复制到目录dir中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 6. mv命令</span><br><span class="line">该命令用于&lt;strong&gt;移动文件、目录或更名&lt;/strong&gt;, &lt;code&gt;move&lt;/code&gt;之意, 它的常用参数如下:</span><br><span class="line"></span><br><span class="line">* &lt;code&gt;-f&lt;/code&gt; : &lt;code&gt;force&lt;/code&gt;强制的意思, 如果目标文件已经存在, 不会询问而直接覆盖</span><br><span class="line">* &lt;code&gt;-i&lt;/code&gt; : 若目标文件已经存在, 就会询问是否覆盖</span><br><span class="line">* &lt;code&gt;-u&lt;/code&gt; : 若目标文件已经存在, 且比目标文件新, 才会更新</span><br><span class="line">注: 该命令可以把一个文件或多个文件一次移动一个文件夹中, 但是最后一个目标文件一定要是&quot;目录&quot;.</span><br><span class="line"></span><br><span class="line">#####例如:</span><br></pre></td></tr></table></figure></p>
+<p>mv file1 file2 file3 dir # 把文件file1、file2、file3移动到目录dir中<br>mv file1 file2 # 把文件file1重命名为file2<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 7. rm命令</span><br><span class="line">该命令用于&lt;strong&gt;删除文件或目录&lt;/strong&gt;, &lt;code&gt;remove&lt;/code&gt;之意, 它的常用参数如下:</span><br><span class="line">* &lt;code&gt;-f&lt;/code&gt; :就是&lt;code&gt;force&lt;/code&gt;的意思, 忽略不存在的文件, 不会出现警告消息</span><br><span class="line">* &lt;code&gt;-i&lt;/code&gt; :互动模式, 在删除前会询问用户是否操作</span><br><span class="line">* &lt;code&gt;-r&lt;/code&gt; :递归删除, 最常用于目录删除, 它是一个非常危险的参数</span><br><span class="line"></span><br><span class="line">例如:</span><br></pre></td></tr></table></figure></p>
+<p>rm -i file # 删除文件file，在删除之前会询问是否进行该操作<br>rm -fr dir # 强制删除目录dir中的所有文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 8. ps命令</span><br><span class="line">该命令用于&lt;strong&gt;将某个时间点的进程运行情况选取下来并输出&lt;/strong&gt;, &lt;code&gt;process&lt;/code&gt;之意, 它的常用参数如下:</span><br><span class="line">* &lt;code&gt;-A&lt;/code&gt; : 所有的进程均显示出来</span><br><span class="line">* &lt;code&gt;-a&lt;/code&gt; : 不与&lt;code&gt;terminal&lt;/code&gt;有关的所有进程</span><br><span class="line">* &lt;code&gt;-u&lt;/code&gt; : 有效用户的相关进程</span><br><span class="line">* &lt;code&gt;-x&lt;/code&gt; : 一般与&lt;code&gt;a&lt;/code&gt;参数一起使用，可列出较完整的信息</span><br><span class="line">* &lt;code&gt;-l&lt;/code&gt; : 较长, 较详细地将&lt;code&gt;PID&lt;/code&gt;的信息列出</span><br><span class="line">  </span><br><span class="line">其实我们只要记住&lt;code&gt;ps&lt;/code&gt;一般使用的命令参数搭配即可, 它们并不多, 如下:</span><br></pre></td></tr></table></figure></p>
+<p>ps aux # 查看系统所有的进程数据<br>ps ax # 查看不与terminal有关的所有进程<br>ps -lA # 查看系统所有的进程数据<br>ps axjf # 查看连同一部分进程树状态<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 9.kill命令</span><br><span class="line">该命令用于向某个工作(%jobnumber)或者是某个PID(数字)传送一个信号,&lt;strong&gt;对进程进行终止及处理&lt;/strong&gt; 它通常与&lt;code&gt;ps&lt;/code&gt;和&lt;code&gt;jobs&lt;/code&gt;命令一起使用, 它的基本语法如下:</span><br></pre></td></tr></table></figure></p>
+<p>kill -signal PID<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#### signal的常用参数如下:</span><br><span class="line"></span><br><span class="line">注: 最前面的数字为信号的代号,使用时可以用代号代替相应的信号.</span><br></pre></td></tr></table></figure></p>
+<p>1：SIGHUP，启动被终止的进程<br>2：SIGINT，相当于输入ctrl+c，中断一个程序的进行<br>9：SIGKILL，强制中断一个进程的进行<br>15：SIGTERM，以正常的结束进程方式来终止进程<br>17：SIGSTOP，相当于输入ctrl+z，暂停一个进程的进行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#### 例如：</span><br><span class="line">以正常的结束进程方式来终止第一个后台工作，可用&lt;code&gt;jobs&lt;/code&gt;命令查看后台中的第一个工作进程</span><br></pre></td></tr></table></figure></p>
+<p>kill -SIGTERM %1<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">重新改动进程&lt;code&gt;ID&lt;/code&gt;为&lt;code&gt;PID&lt;/code&gt;的进程, &lt;code&gt;PID&lt;/code&gt;可用&lt;code&gt;ps&lt;/code&gt;命令通过管道命令加上&lt;code&gt;grep&lt;/code&gt;命令进行筛选获得</span><br></pre></td></tr></table></figure></p>
+<p>kill -SIGHUP PID<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 10.killal命令</span><br><span class="line">该命令用于&lt;strong&gt;向一个命令启动的进程发送一个信号&lt;/strong&gt;, 它的一般语法如下:</span><br></pre></td></tr></table></figure></p>
+<p>killall [-iIe] [command name]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">它的参数如下显示:</span><br><span class="line">&lt;code&gt;-i&lt;/code&gt; :交互式的意思, 若需要删除时, 会询问用户</span><br><span class="line">&lt;code&gt;-e&lt;/code&gt; :表示后面接的&lt;code&gt;command name&lt;/code&gt;要一致, 但&lt;code&gt;command name&lt;/code&gt;不能超过&lt;code&gt;15&lt;/code&gt;个字符</span><br><span class="line">&lt;code&gt;-I&lt;/code&gt; :命令名称忽略大小写</span><br><span class="line">#### 例如:</span><br></pre></td></tr></table></figure></p>
+<p>killall -SIGHUP syslogd # 重新启动syslogd<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 11.file 命令</span><br><span class="line">该命令用于&lt;strong&gt;判断接在&lt;code&gt;file&lt;/code&gt;命令后的文件的基本数据(判断文件数据类型)&lt;/strong&gt;, 因为在&lt;code&gt;Linux&lt;/code&gt;下文件的类型并不是以后缀为分的, 所以这个命令对我们来说就很有用了, 它的用法非常简单, 基本语法如下:</span><br></pre></td></tr></table></figure></p>
+<p>file filename<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">####例如:</span><br></pre></td></tr></table></figure></p>
+<p>file ./test<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 12.tar命令</span><br><span class="line">该命令用于对文件进行打包, 默认情况并不会压缩, 如果指定了相应的参数, 它还会调用相应的压缩程序&lt;code&gt;(如gzip和bzip等)&lt;/code&gt;进行压缩和解压. 它的常用参数如下:</span><br><span class="line">* &lt;code&gt;-c&lt;/code&gt; : 新建打包文件</span><br><span class="line">* &lt;code&gt;-t&lt;/code&gt; : 查看打包文件的内容含有哪些文件名</span><br><span class="line">* &lt;code&gt;-x&lt;/code&gt; : 解打包或解压缩的功能, 可以搭配&lt;code&gt;-C(大写)&lt;/code&gt;指定解压的目录, 注意&lt;code&gt;-c,-t,-x&lt;/code&gt;不能同时出现在同一条命令中</span><br><span class="line">* &lt;code&gt;-j&lt;/code&gt; : 通过bzip2的支持进行压缩/解压缩</span><br><span class="line">* &lt;code&gt;-z&lt;/code&gt; : 通过&lt;code&gt;gzip&lt;/code&gt;的支持进行压缩/解压缩</span><br><span class="line">* &lt;code&gt;-v&lt;/code&gt; : 在压缩/解压缩过程中, 将正在处理的文件名显示出来</span><br><span class="line">* &lt;code&gt;-f filename&lt;/code&gt; : &lt;code&gt;filename&lt;/code&gt;为要处理的文件</span><br><span class="line">* &lt;code&gt;-C dir&lt;/code&gt; : 指定压缩/解压缩的目录&lt;code&gt;dir&lt;/code&gt;</span><br><span class="line">  </span><br><span class="line">上面的解说可以已经让你晕过去了, 但是通常我们只需要记住下面三条命令即可:</span><br></pre></td></tr></table></figure></p>
+<p>压缩:tar -jcv -f filename.tar.bz2 要被处理的文件或目录名称<br>查询:tar -jtv -f filename.tar.bz2<br>解压:tar -jxv -f filename.tar.bz2 -C 欲解压缩的目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">注：&lt;strong&gt;文件名并不定要以后缀tar.bz2结尾&lt;/strong&gt;, 这里主要是为了说明使用的压缩程序为&lt;code&gt;bzip2&lt;/code&gt;</span><br><span class="line"></span><br><span class="line">#### 13、cat命令</span><br><span class="line">该命令用于&lt;strong&gt;查看文本文件的内容&lt;/strong&gt;, 后接要查看的文件名, 通常可用管道与&lt;code&gt;more&lt;/code&gt;和&lt;code&gt;less&lt;/code&gt;一起使用, 从而可以&lt;strong&gt;一页页地查看数据&lt;/strong&gt;. 例如:</span><br></pre></td></tr></table></figure></p>
+<p>cat text | less # 查看text文件中的内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#### 注：这条命令也可以使用less text来代替</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#### 14、chgrp命令</span><br><span class="line">该命令用于&lt;strong&gt;改变文件所属用户组&lt;/strong&gt;, 它的使用非常简单, 它的基本用法如下:</span><br></pre></td></tr></table></figure></p>
+<p>chgrp [-R] dirname/filename<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">* &lt;code&gt;-R&lt;/code&gt; : 进行递归的持续对所有文件和子目录更改</span><br><span class="line">#### 例如：</span><br></pre></td></tr></table></figure></p>
+<p>chgrp users -R ./dir # 递归地把dir目录下中的所有文件和子目录下所有文件的用户组修改为users<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 15、chown命令</span><br><span class="line">该命令用于改变文件的所有者, 与&lt;code&gt;chgrp&lt;/code&gt;命令的使用方法相同, 只是修改的文件属性不同, 不再详述.</span><br><span class="line"></span><br><span class="line">#### 16、chmod命令</span><br><span class="line">该命令&lt;strong&gt;用于改变文件的权限&lt;/strong&gt;, 一般的用法如下:</span><br></pre></td></tr></table></figure></p>
+<p>chmod [-R] xyz 文件或目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">* &lt;code&gt;-R&lt;/code&gt;: 进行递归的持续更改, 即连同子目录下的所有文件都会更改</span><br><span class="line">同时, &lt;code&gt;chmod&lt;/code&gt;还可以使用&lt;code&gt;u(user)、g(group)、o(other)、a(all)和+(加入)、-(删除)、=(设置)&lt;/code&gt;跟&lt;code&gt;rwx&lt;/code&gt;搭配来对文件的权限进行更改.</span><br><span class="line"></span><br><span class="line">#### 例如:</span><br></pre></td></tr></table></figure></p>
+<p>chmod 0755 file # 把file的文件权限改变为-rxwr-xr-x 读取权限r为”4”,写入权限w为”2”,执行或切换权限x为”1”<br>chmod g+w file # 向file的文件权限中加入用户组可写权限<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 17 vim命令</span><br><span class="line">* 常用命令:</span><br></pre></td></tr></table></figure></p>
+<p>vi filename # 打开已存在的文件或者新建一个文件<br>vi + 行号  filename # 在进入 vi 后，光标处于文件中特定的某行上，可在 vi 命令上加上行号和文件名<br>vi + filename # 如果希望在进入 vi 之后光标处于文件最末行，则只需去掉命令中+后面的数字 n 即可<br>vi +/匹配的关键字 filename # 进入 vi 后，光标就处于文件中第一个与指定模式串相匹配的那行上<br>vi *.filename # 使用 vi 可以同时编辑多个文件，只要在进入 vi 的命令中写入所要操作的文件即可，还可以使用通配符<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 插入文本命令：i 和 I</span><br></pre></td></tr></table></figure></p>
+<p>i 命令将文本插入到光标所在位置前<br>I 命令将文本插入当前行的行首。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* 追加文本命令：a 和 A</span><br></pre></td></tr></table></figure></p>
+<p>a 命令将新文本追加到光标当前所在位置之后<br>A 命令将新文本追加到所在行的行尾。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* 空行插入命令：o 和 O</span><br></pre></td></tr></table></figure></p>
+<p>o 命令将在光标所在行的下面插入一个空行，并将光标置于该行的行首。<br>O 命令在光标所在行的上面插入一个空行，并将光标置于该行的行首。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* vi文本删除命令(删除文件内容)</span><br></pre></td></tr></table></figure></p>
+<p>x ：每按一次，删除光标所在位置的”后面”一个字符。</p>
+<h1 id="x-：例如，「6x」表示删除光标所在位置的”后面”6个字符。"><a href="#x-：例如，「6x」表示删除光标所在位置的”后面”6个字符。" class="headerlink" title="x ：例如，「6x」表示删除光标所在位置的”后面”6个字符。"></a>x ：例如，「6x」表示删除光标所在位置的”后面”6个字符。</h1><p>X ：大写的X，每按一次，删除光标所在位置的”前面”一个字符。</p>
+<h1 id="X-：例如，「20X」表示删除光标所在位置的”前面”20个字符。"><a href="#X-：例如，「20X」表示删除光标所在位置的”前面”20个字符。" class="headerlink" title="X ：例如，「20X」表示删除光标所在位置的”前面”20个字符。"></a>X ：例如，「20X」表示删除光标所在位置的”前面”20个字符。</h1><p>dd ：删除光标所在行。</p>
+<h1 id="dd-：从光标所在行开始删除-行"><a href="#dd-：从光标所在行开始删除-行" class="headerlink" title="dd ：从光标所在行开始删除#行"></a>dd ：从光标所在行开始删除#行</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 文本粘贴命令</span><br></pre></td></tr></table></figure>
+<p>p 命令：粘贴命令，粘贴当前缓冲区中的内容。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* 文本选择命令</span><br></pre></td></tr></table></figure></p>
+<p>v 命令：在命令模式下进行文本选择。在需要选择的文本的起始处按下 v 键进入块选择模式，然后移动光标到块尾处。这之间的部分被高亮显示，表示被选中。<br>V 命令：在命令模式下按行进行文本选择。在需要选择的文本的第一行按下 V 键，然后移动光标到块的最后一行。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* vi撤销命令(u和U), 撤销上一次的操作</span><br></pre></td></tr></table></figure></p>
+<p>撤销命令分为以下两种<br>u 命令:该命令撤销上一次所做的操作。多次使用 u 命令会一步一步依次撤销之前做过的操作（在一次切换到文本输入模式中输入的所有文本算一次操作）。<br>U 命令:该命令会一次性撤销自上次移动到当前行以来做过的所有操作，再使用一次 U 命令则撤销之前的 U 命令所做的操作，恢复被撤销的内容。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* vi退出命令</span><br></pre></td></tr></table></figure></p>
+<p>:q  当用户不清楚自己当前编译的文件是否被修改时，可以使用该命令进行测试，而不必担心因为误操作导致文件数据丢失。</p>
+<p>:q! 该命令不论文件是否改变都会强行退出 vi 编辑器，对于此命令用户应当慎用。</p>
+<p>:w  新文件名</p>
+<p>vi 保存当前编辑文件，但并不退出，而是继续等待用户输入命令。在使用 w 命令时，可以再给当前编辑文件起一个新的文件名。这个功能相当于将该文件另存为为一个新的文件。</p>
+<p>:w!  新文件名</p>
+<p>说明：该命令与:w命令相同，所不同的是，即使指定的新文件存在，vi 编辑器也会用当前编辑文件对其进行替换，而不再询问用户。</p>
+<p>:wq</p>
+<p>vi 将先保存文件，然后退出 vi 返回到 shell。如果当前文件尚未取名，则需要现指定一个文件名。</p>
+<p>:x</p>
+<p>说明：若当前编辑文件曾被修改过，则 vi 会保存该文件。否则 vi 直接退出，不保存该文件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line"></span><br><span class="line">* vi字符替换命令（r和R命令）</span><br></pre></td></tr></table></figure></p>
+<ol>
+<li>r 命令</li>
+</ol>
+<p>该命令将当前光标所指的字符替换为提供的字符。可以在该命令之前加上数字 n，表示将从当前字符开始的 n 个字符替换为提供的字符</p>
+<ol>
+<li>R命令</li>
+</ol>
+<p>该命令会让 vi 进入 replace 模式。在此模式下，每个输入的字符都会替换当前光标下的字符，直到输入 <esc> 结束该模式。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line">* vi字符串检索（查找）命令</span><br></pre></td></tr></table></figure></esc></p>
+<p>查找命令有 5 种</p>
+<p>/string  /命令从光标处开始向后寻找字符串 string。</p>
+<p>?string  ? 命令从光标处开始向前寻找字符串 string。</p>
+<p>n 命令重复上一条检索命令。</p>
+<p>N 命令重复上一条检索命令，但检索方向改变。例如上次的检索命令是向前检索，那么此次检索的方向是向后；如果上次的检索命令是向后检索，那么此次检索的方向是向前。</p>
+<p>g/string  检索 string。g/命令使光标停止在第一个检索到的 string 串的行首。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* vi字符串替换命令</span><br></pre></td></tr></table></figure></p>
+<p>[range]s/s1/s2/ [option]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[range] 表示检索范围，省略时表示当前行。下面是一些检索范围的例子。</span><br><span class="line">* 1,10表示从第 1 行到 10 行。%表示整个文件。</span><br><span class="line">* &lt;code&gt;.&lt;/code&gt; , 从当前行到文件尾。</span><br><span class="line">* &lt;code&gt;s&lt;/code&gt; 为替换命令。</span><br><span class="line">* &lt;code&gt;s1&lt;/code&gt; 要被替换的串，&lt;code&gt;s2&lt;/code&gt; 为替换的串。</span><br><span class="line">option 表示选项：</span><br><span class="line">* &lt;code&gt;/g&lt;/code&gt;表示在全局文件中进行替换。</span><br><span class="line">* &lt;code&gt;/c&lt;/code&gt;表示在每次替换之前需要用户进行确认。</span><br><span class="line">省略时仅对每行第一个匹配串进行替换。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#### 18.time命令</span><br><span class="line">该命令用于&lt;strong&gt;测算一个命令(即程序)的执行时间&lt;/strong&gt;. 它的使用非常简单, 就像平时输入命令一样, 不过在命令的前面加入一个time即可, 例如:</span><br></pre></td></tr></table></figure></p>
+<p>time ./process<br>time ps aux<br>````<br>在程序或命令运行结束后, 在最后输出了三个时间, 它们分别是:</p>
+<ul>
+<li>user: 用户<code>CPU</code>时间, 命令执行完成花费的用户<code>CPU</code>时间, 即命令在用户态中执行时间总和;</li>
+<li>system: 系统<code>CPU</code>时间, 命令执行完成花费的系统<code>CPU</code>时间, 即命令在核心态中执行时间总和;</li>
+<li>real: 实际时间, 从<code>command</code>命令行开始执行到运行终止的消逝时间;</li>
+</ul>
+<p>注: 用户CPU时间和系统CPU时间之和为CPU时间, 即命令占用CPU执行的时间总和. 实际时间要大于CPU时间, 因为Linux是多任务操作系统, 往往在执行一条命令时, 系统还要处理其它任务. 另一个需要注意的问题是即使每次执行相同命令, 但所花费的时间也是不一样, 其花费时间是与系统运行相关的. </p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/19/Linux-基本文本处理-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -341,59 +559,59 @@
  -->
 <h4 id="fold命令"><a href="#fold命令" class="headerlink" title="fold命令"></a>fold命令</h4><p>&emsp;&emsp;<code>folder</code>指令会从指定的文件里读取内容, 将超过限定列宽的列加入增列字符后, 输出到标准输出设备。若不指定任何文件名称, 或是所给予的文件名为<code>-</code>, 则<code>fold</code>指令会从标准输入设备读取数据。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fold [-bs] [-w &lt;每行列数&gt;] [--help] [--version] [文件...]</span><br></pre></td></tr></table></figure></p>
 <ul>
-<li><code>-b</code>或<code>—bytes</code>:以<code>Byte</code>为单位计算列宽, 而非采用列数编号为单位。</li>
-<li><code>-s</code>或<code>—spaces</code>:以空格字符作为换列点。</li>
-<li><code>&lt;每行列数&gt;-w&lt;每行列数&gt;</code>或<code>—width &lt;每行列数&gt;</code>:设置每行的最大列数。</li>
-<li><code>—help</code>:在线帮助。</li>
-<li><code>—version</code>:显示版本信息。<br>将一个名为<code>testfile</code>的文件的行折叠成宽度为<code>30</code>, 可使用如下命令:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fold -w 30 testfile</span><br></pre></td></tr></table></figure>
+<li><code>-b</code>或<code>–bytes</code>:以<code>Byte</code>为单位计算列宽, 而非采用列数编号为单位。</li>
+<li><code>-s</code>或<code>–spaces</code>:以空格字符作为换列点。</li>
+<li><code>&lt;每行列数&gt;-w&lt;每行列数&gt;</code>或<code>–width &lt;每行列数&gt;</code>:设置每行的最大列数。</li>
+<li><code>–help</code>:在线帮助。</li>
+<li><code>–version</code>:显示版本信息。<br>将一个名为<code>testfile</code>的文件的行折叠成宽度为<code>30</code>, 可使用如下命令:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fold -w 30 testfile</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>为了对比，先将<code>testfile</code>文件输出如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">$ cat testfile  # 查看testfile中的内容</span><br><span class="line">Linux networks are becoming more and more common, but</span><br><span class="line">security is often an overlooked</span><br><span class="line">issue. Unfortunately, in today’s environment all networks</span><br><span class="line">are potential hacker targets,</span><br><span class="line">from top-secret military research networks to small home LANs.</span><br><span class="line">Linux Network Security focuses on securing Linux in a</span><br><span class="line">networked environment, where the</span><br><span class="line">security of the entire network needs to be considered</span><br><span class="line">rather than just isolated machines.</span><br><span class="line">It uses a mix of theory and practical techniques to</span><br><span class="line">teach administrators how to install and</span><br><span class="line">use security applications, as well as how the</span><br><span class="line">applications work and why they are necessary.</span><br></pre></td></tr></table></figure></p>
 <p>然后使用<code>fold</code>命令折叠显示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">$ fold -w 30 testfile  # 行折叠成宽度为30，显示testfile文件</span><br><span class="line">Linux networks are becoming mo</span><br><span class="line">re and more common, but securi</span><br><span class="line">ty is often an overlooked issu</span><br><span class="line">e. Unfortunately, in today’s</span><br><span class="line">environment all networks are</span><br><span class="line">potential hacker targets, from</span><br><span class="line">top-secret military research</span><br><span class="line">networks to small home LANs.</span><br><span class="line">Linux Network Security focuses</span><br><span class="line">on securing Linux in a networ</span><br><span class="line">ked environment, where the sec</span><br><span class="line">urity of the entire network ne</span><br><span class="line">eds to be considered rather th</span><br><span class="line">an just isolated machines. It</span><br><span class="line">uses a mix of theory and pract</span><br><span class="line">ical techniques to teach admin</span><br><span class="line">istrators how to install and u</span><br><span class="line">se security applications, as w</span><br><span class="line">ell as how the applications wo</span><br><span class="line">rk and why they are necessary</span><br></pre></td></tr></table></figure></p>
-<h4 id="fmt命令"><a href="#fmt命令" class="headerlink" title="fmt命令"></a>fmt命令</h4><p>&emsp;&emsp;<code>fmt</code>指令会从指定的文件里读取内容, 将其依照指定格式重新编排后, 输出到标准输出设备。若指定的文件名为<code>-</code>, 则<code>fmt</code>指令会从标准输入设备读取数据。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fmt [-cstu] [-w &lt;每行字符数&gt;] [--help] [--version] [文件...]</span><br></pre></td></tr></table></figure></p>
+<p>####fmt命令<br>&emsp;&emsp;<code>fmt</code>指令会从指定的文件里读取内容, 将其依照指定格式重新编排后, 输出到标准输出设备。若指定的文件名为<code>-</code>, 则<code>fmt</code>指令会从标准输入设备读取数据。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fmt [-cstu] [-w &lt;每行字符数&gt;] [--help] [--version] [文件...]</span><br></pre></td></tr></table></figure></p>
 <ul>
-<li><code>-c</code>或<code>—crown-margin</code>:每段前两列缩排。</li>
-<li><code>-s</code>或<code>—split-only</code>:只拆开字数超出每列字符数的行, 但不合并字数不足每列字符数的行。</li>
-<li><code>-t</code>或<code>—tagged-paragraph</code>:每列前两列缩排, 但第1列和第2列的缩排格式不同。</li>
-<li><code>-u</code>或<code>—uniform-spacing</code>:每个字符之间都以一个空格字符间隔, 每个句子之间则两个空格字符分隔。</li>
+<li><code>-c</code>或<code>–crown-margin</code>:每段前两列缩排。</li>
+<li><code>-s</code>或<code>–split-only</code>:只拆开字数超出每列字符数的行, 但不合并字数不足每列字符数的行。</li>
+<li><code>-t</code>或<code>–tagged-paragraph</code>:每列前两列缩排, 但第1列和第2列的缩排格式不同。</li>
+<li><code>-u</code>或<code>–uniform-spacing</code>:每个字符之间都以一个空格字符间隔, 每个句子之间则两个空格字符分隔。</li>
 <li><code>-w &lt;每行字符数&gt;</code>:设置每行的最大字符数。</li>
-<li><code>—help</code>:在线帮助。</li>
-<li><code>—version</code>:显示版本信息。<br>先使用<code>cat</code>命令查看文件内容:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ cat testfile  # 查看testfile文件的内容</span><br><span class="line">hello Linux!</span><br><span class="line">Linux is a free Unix-type operating system.</span><br><span class="line">This is a Linux testfile!</span><br><span class="line">Linux</span><br><span class="line">Linux</span><br></pre></td></tr></table></figure>
+<li><code>–help</code>:在线帮助。</li>
+<li><code>–version</code>:显示版本信息。<br>先使用<code>cat</code>命令查看文件内容:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ cat testfile  # 查看testfile文件的内容</span><br><span class="line">hello Linux!</span><br><span class="line">Linux is a free Unix-type operating system.</span><br><span class="line">This is a Linux testfile!</span><br><span class="line">Linux</span><br><span class="line">Linux</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>使用fmt命令重排之后，输出结果如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ fmt -w 85 testfile  # 指定重排宽度为85个字符</span><br><span class="line">hello Linux! Linux is a free Unix-type operating system. This is a Linux testfile!</span><br><span class="line">Linux Linux</span><br></pre></td></tr></table></figure></p>
 <h4 id="rev命令"><a href="#rev命令" class="headerlink" title="rev命令"></a>rev命令</h4><p>&emsp;&emsp;<code>rev</code>命令将文件中的每行内容以字符为单位反序输出, 即第一个字符最后输出, 最后一个字符最先输出, 依次类推.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rev [参数]</span><br><span class="line">参数为指定要反序显示内容的文件.</span><br></pre></td></tr></table></figure></p>
-<h4 id="pr命令"><a href="#pr命令" class="headerlink" title="pr命令"></a>pr命令</h4><p>&emsp;&emsp;将文本文件内容转换成适合打印的格式:</p>
+<p>####pr命令<br>&emsp;&emsp;将文本文件内容转换成适合打印的格式:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pr [选项] [文件]</span><br></pre></td></tr></table></figure>
 <ul>
-<li><code>+首页[:末页]、—pages=首页[:末页]</code>: 在指定的首页/末页处开始/停止打印.</li>
-<li><code>-列数、—columns=列数</code>: 输出指定的列数. 如果指定了<code>-a</code>选项, 则从上到下列印. 程序会自动在每一页均衡每列占用的行数.</li>
-<li><code>-a、—across</code>: 设置每列从上到下输出, 配合<code>-</code>列数选项一起使用.</li>
-<li><code>-c、—show-control-chars</code>: 使用头标<code>^G</code>和八进制反斜杠标记。</li>
-<li><code>-d、—double-space</code>: 加倍输出空白区域。</li>
-<li><code>-D、—date-format=格式</code>: 使用遵循指定格式的页眉日期.</li>
-<li><code>-e[字符[宽度]]、—expand-tabs[=字符[宽度]]</code>:扩展输入的字符<code>(TAB)</code>到制表符宽度<code>(8)</code>.</li>
-<li><code>-F、-f、—form-feed</code>: 使用出纸页页标代替新行作为页面间的分隔符(使用<code>-F</code>选项时报头为<code>3</code>行, 不使用时为<code>5</code>行).</li>
-<li><code>-h、—header=页眉</code>: 在页眉中使用居中的指定字符代替文件名, <code>-h “”输出一个空行, 不要使用-h””</code>.</li>
-<li><code>-i[字符[宽度]]、—output-tabs[=字符[宽度]]</code>:使用指定字符<code>(或TAB)</code>代替空格不足到指定制表符宽度<code>(默认8)</code>.</li>
-<li><code>-J、—join-lines</code>: 合并整个行, 关闭<code>-W</code>选项的行截断, 不使用栏调整, 使用<code>—sep-string[=字符串]</code>设置分隔符.</li>
-<li><code>-l、—length=页长</code>: 使用指定页长的行数<code>(默认66)</code>(默认文本行数为56，当启用-F时为63).</li>
-<li><code>-m、—merge</code>: 在同一行显示所有文件, 每个文件占用一栏, 分割行, 但是当使用<code>-J</code>时将行合并到完整长度.</li>
-<li><code>-n[分隔符[位数]]、—number-lines[=分隔符[位数]]</code>:显示行号, 使用指定<code>(默认5)</code>位数, 后接分隔符<code>(默认TABM)</code>, 默认从输入文件的第一行开始计数.</li>
-<li><code>-N、—first-line-number=数字</code>: 从首页的首行以指定数字开始计数.</li>
-<li><code>-o、—indent=缩进量</code>: 将每行缩进<code>(默认0)</code>个空格, 不影响<code>-w或-W</code>参数, 缩进量的值将被加入页面宽度.</li>
-<li><code>-r、—no-file-warnings</code>: 当文件无法打开时忽略警告.</li>
-<li><code>-s[CHAR]、—separator[=CHAR]</code>: 由单个字符分隔各列, 未附加<code>-w</code>时默认为制表符, 否则为空. 另外除非<code>-w</code>选项被指定，否则<code>-s[CHAR]</code>会屏蔽三个列相关的截行选项<code>(-COLUMN|-a -COLUMN|-m)</code>.</li>
-<li><code>-S字符串、—sep-string[=字符串]</code>: 使用指定的字符串分栏, 不使用<code>-S</code>则使用默认的制表符<code>TAB</code>作为分隔符, 与<code>-J</code>和空格一起使用<code>(等于-S” “)</code>对分栏选项无影响.</li>
-<li><code>-t、—omit-header</code>: 忽略页眉和页脚.</li>
-<li><code>-T、—omit-pagination</code>: 按照输入文件中的设置忽略页眉和页脚并除去所有分页记号.</li>
-<li><code>-v、—show-nonprinting</code>: 使用八进制反斜杠标记.</li>
-<li><code>-w、—width=页面宽度</code>: 为多栏页面输出将设置为指定的字符数<code>(默认72)</code>, 仅当<code>-s[char]</code>选项不启用时有效<code>(即保持默认值72)</code>.</li>
-<li><code>-W、—page-width=页宽</code>: 总是将页宽设置为指定的<code>(默认72)</code>字符数，除非<code>-J</code>选项启用总是截断行, 此参数与<code>-S</code>或<code>-s</code>冲突.</li>
-<li><code>—help</code>: 显示此帮助信息并退出.</li>
-<li><code>—version</code>: 显示版本信息并退出.<br>如果页长小于等于<code>10</code>, 则使用<code>-t</code>选项. 如果<code>FILE</code>没有定义或者<code>FILE</code>是<code>-</code>, 则从标准输入读入.</li>
+<li><code>+首页[:末页]、–pages=首页[:末页]</code>: 在指定的首页/末页处开始/停止打印.</li>
+<li><code>-列数、–columns=列数</code>: 输出指定的列数. 如果指定了<code>-a</code>选项, 则从上到下列印. 程序会自动在每一页均衡每列占用的行数.</li>
+<li><code>-a、–across</code>: 设置每列从上到下输出, 配合<code>-</code>列数选项一起使用.</li>
+<li><code>-c、–show-control-chars</code>: 使用头标<code>^G</code>和八进制反斜杠标记。</li>
+<li><code>-d、–double-space</code>: 加倍输出空白区域。</li>
+<li><code>-D、–date-format=格式</code>: 使用遵循指定格式的页眉日期.</li>
+<li><code>-e[字符[宽度]]、–expand-tabs[=字符[宽度]]</code>:扩展输入的字符<code>(TAB)</code>到制表符宽度<code>(8)</code>.</li>
+<li><code>-F、-f、–form-feed</code>: 使用出纸页页标代替新行作为页面间的分隔符(使用<code>-F</code>选项时报头为<code>3</code>行, 不使用时为<code>5</code>行).</li>
+<li><code>-h、–header=页眉</code>: 在页眉中使用居中的指定字符代替文件名, <code>-h “”输出一个空行, 不要使用-h””</code>.</li>
+<li><code>-i[字符[宽度]]、–output-tabs[=字符[宽度]]</code>:使用指定字符<code>(或TAB)</code>代替空格不足到指定制表符宽度<code>(默认8)</code>.</li>
+<li><code>-J、–join-lines</code>: 合并整个行, 关闭<code>-W</code>选项的行截断, 不使用栏调整, 使用<code>–sep-string[=字符串]</code>设置分隔符.</li>
+<li><code>-l、–length=页长</code>: 使用指定页长的行数<code>(默认66)</code>(默认文本行数为56，当启用-F时为63).</li>
+<li><code>-m、–merge</code>: 在同一行显示所有文件, 每个文件占用一栏, 分割行, 但是当使用<code>-J</code>时将行合并到完整长度.</li>
+<li><code>-n[分隔符[位数]]、–number-lines[=分隔符[位数]]</code>:显示行号, 使用指定<code>(默认5)</code>位数, 后接分隔符<code>(默认TABM)</code>, 默认从输入文件的第一行开始计数.</li>
+<li><code>-N、–first-line-number=数字</code>: 从首页的首行以指定数字开始计数.</li>
+<li><code>-o、–indent=缩进量</code>: 将每行缩进<code>(默认0)</code>个空格, 不影响<code>-w或-W</code>参数, 缩进量的值将被加入页面宽度.</li>
+<li><code>-r、–no-file-warnings</code>: 当文件无法打开时忽略警告.</li>
+<li><code>-s[CHAR]、–separator[=CHAR]</code>: 由单个字符分隔各列, 未附加<code>-w</code>时默认为制表符, 否则为空. 另外除非<code>-w</code>选项被指定，否则<code>-s[CHAR]</code>会屏蔽三个列相关的截行选项<code>(-COLUMN|-a -COLUMN|-m)</code>.</li>
+<li><code>-S字符串、–sep-string[=字符串]</code>: 使用指定的字符串分栏, 不使用<code>-S</code>则使用默认的制表符<code>TAB</code>作为分隔符, 与<code>-J</code>和空格一起使用<code>(等于-S” “)</code>对分栏选项无影响.</li>
+<li><code>-t、–omit-header</code>: 忽略页眉和页脚.</li>
+<li><code>-T、–omit-pagination</code>: 按照输入文件中的设置忽略页眉和页脚并除去所有分页记号.</li>
+<li><code>-v、–show-nonprinting</code>: 使用八进制反斜杠标记.</li>
+<li><code>-w、–width=页面宽度</code>: 为多栏页面输出将设置为指定的字符数<code>(默认72)</code>, 仅当<code>-s[char]</code>选项不启用时有效<code>(即保持默认值72)</code>.</li>
+<li><code>-W、–page-width=页宽</code>: 总是将页宽设置为指定的<code>(默认72)</code>字符数，除非<code>-J</code>选项启用总是截断行, 此参数与<code>-S</code>或<code>-s</code>冲突.</li>
+<li><code>–help</code>: 显示此帮助信息并退出.</li>
+<li><code>–version</code>: 显示版本信息并退出.<br>如果页长小于等于<code>10</code>, 则使用<code>-t</code>选项. 如果<code>FILE</code>没有定义或者<code>FILE</code>是<code>-</code>, 则从标准输入读入.</li>
 </ul>
-<h4 id="sort命令"><a href="#sort命令" class="headerlink" title="sort命令"></a>sort命令</h4><p>&emsp;&emsp;<code>sort</code>命令是依据不同的数据类型进行排序:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sort [-bcfMnrtk] [源文件] [-o 输出文件]</span><br></pre></td></tr></table></figure></p>
+<p>####sort命令<br>&emsp;&emsp;<code>sort</code>命令是依据不同的数据类型进行排序:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sort [-bcfMnrtk] [源文件] [-o 输出文件]</span><br></pre></td></tr></table></figure></p>
 <p><code>sort</code>可针对文本文件的内容以行为单位来排序.</p>
 <ul>
 <li><code>-b</code>:忽略每行前面开始出的空格字符.</li>
@@ -427,15 +645,15 @@
 </ul>
 <h4 id="wc命令"><a href="#wc命令" class="headerlink" title="wc命令"></a>wc命令</h4><p>&emsp;&emsp;利用<code>wc</code>命令我们可以计算文件的<code>Byte</code>数、字数、或是列数. 若不指定文件名称、或是所给予的文件名为<code>,</code>则<code>wc</code>命令会从标准输入设备读取数据.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wc [-clw] [--help] [--version] [文件...]</span><br></pre></td></tr></table></figure></p>
 <ul>
-<li><code>-c、—bytes或—chars</code>:只显示<code>Bytes</code>数.</li>
-<li><code>-l</code>或<code>—lines</code>:只显示列数.</li>
-<li><code>-w</code>或<code>—words</code>:只显示字数.</li>
-<li><code>—help</code>:在线帮助.</li>
-<li><code>—version</code>:显示版本信息.<br>先查看<code>testfile</code>文件的内容:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ cat testfile</span><br><span class="line">Linux networks are becoming more and more common, but scurity is often an overlooked</span><br><span class="line">issue. Unfortunately, in today’s environment all networks are potential hacker targets,</span><br><span class="line">fro0m tp-secret military research networks to small home LANs.</span><br><span class="line">Linux Network Securty focuses on securing Linux in a networked environment, where the</span><br><span class="line">security of the entire network needs to be considered rather than just isolated machines.</span><br><span class="line">It uses a mix of theory and practicl techniques to teach administrators how to install and</span><br><span class="line">use security applications, as well as how the applcations work and why they are necesary.</span><br></pre></td></tr></table></figure>
+<li><code>-c、–bytes或–chars</code>:只显示<code>Bytes</code>数.</li>
+<li><code>-l</code>或<code>–lines</code>:只显示列数.</li>
+<li><code>-w</code>或<code>–words</code>:只显示字数.</li>
+<li><code>–help</code>:在线帮助.</li>
+<li><code>–version</code>:显示版本信息.<br>先查看<code>testfile</code>文件的内容:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ cat testfile</span><br><span class="line">Linux networks are becoming more and more common, but scurity is often an overlooked</span><br><span class="line">issue. Unfortunately, in today’s environment all networks are potential hacker targets,</span><br><span class="line">fro0m tp-secret military research networks to small home LANs.</span><br><span class="line">Linux Network Securty focuses on securing Linux in a networked environment, where the</span><br><span class="line">security of the entire network needs to be considered rather than just isolated machines.</span><br><span class="line">It uses a mix of theory and practicl techniques to teach administrators how to install and</span><br><span class="line">use security applications, as well as how the applcations work and why they are necesary.</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>使用<code>wc</code>统计:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ wc testfile  # testfile文件的统计信息</span><br><span class="line">3 92 598 testfile  # testfile文件的行数为3、单词数92、字节数598</span><br></pre></td></tr></table></figure></p>
-<h4 id="cut命令"><a href="#cut命令" class="headerlink" title="cut命令"></a>cut命令</h4><p>&emsp;&emsp;<code>cut</code>是一个选取命令, 就是将一段数据经过分析, 取出我们想要的. 一般来说, 选取信息通常是针对行来进行分析的, 并不是整篇信息分析的.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cut [-bn] [file]</span><br><span class="line">cut [-c] [file]</span><br><span class="line">cut [-df] [file]</span><br></pre></td></tr></table></figure></p>
+<p>####cut命令<br>&emsp;&emsp;<code>cut</code>是一个选取命令, 就是将一段数据经过分析, 取出我们想要的. 一般来说, 选取信息通常是针对行来进行分析的, 并不是整篇信息分析的.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cut [-bn] [file]</span><br><span class="line">cut [-c] [file]</span><br><span class="line">cut [-df] [file]</span><br></pre></td></tr></table></figure></p>
 <p><code>cut</code>命令从文件的每一行剪切字节、字符和字段并将这些内容写至标准输出. 如果不指定<code>File</code>参数, <code>cut</code>命令将读取标准输入.</p>
 <ul>
 <li><code>-b</code>:以字节为单位进行分割. 这些字节位置将忽略多字节字符边界, 除非也指定了<code>-n</code>标志.</li>
@@ -448,12 +666,12 @@
 <p>cut -b 3  # 如果想提取每一行的第3个字节<br>cut -b 3-5,8  # 如果想提取第3、第4、第5和第8个字节，注意顺序不能颠倒<br>cut -b -3  # 表示从第一个字节到第三个字节<br>cut -b 3-  # 表示从第三个字节到行尾<br>当遇到多字节字符时, 可以使用<code>-n</code>选项, <code>-n</code>用于告诉<code>cut</code>不要将多字节字符拆开.<br>  为什么会有域的提取呢？因为刚才提到的-b和-c只能在固定格式的文档中提取信息, 而对于非固定格式的信息则束手无策,这时候域就派上用场了. 如果你观察过/etc/passwd文件就会发现, 它并不像who的输出信息那样具有固定格式, 而是比较零散的排放. 但是冒号在这个文件的每一行中都起到了非常重要的作用, 冒号用来隔开每一个项.<br>  <code>cut</code>命令提供了这样的提取方式, 具体的说就是设置间隔符, 再设置提取第几个域就OK了. 以/etc/passwd的前五行内容为例:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ cat /etc/passwd | head -n 5</span><br><span class="line">root:x:0:0:root:/root:/bin/bash</span><br><span class="line">bin:x:1:1:bin:/bin:/sbin/nologin</span><br><span class="line">daemon:x:2:2:daemon:/sbin:/sbin/nologin</span><br><span class="line">adm:x:3:4:adm:/var/adm:/sbin/nologin</span><br><span class="line">lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin</span><br></pre></td></tr></table></figure></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ cat /etc/passwd | head -n 5 | cut -d : -f 1</span><br><span class="line">root</span><br><span class="line">bin</span><br><span class="line">daemon</span><br><span class="line">adm</span><br><span class="line">lp</span><br></pre></td></tr></table></figure>
 <p>用<code>-d</code>来设置间隔符为冒号, 然后用<code>-f</code>来设置要取的是第一个域, 于是所有的用户名就都列出来了！当然, 在设定<code>-f</code>时也可以使用例如3-5或者4-类似的格式.</p>
-<h4 id="paste命令"><a href="#paste命令" class="headerlink" title="paste命令"></a>paste命令</h4><p>&emsp;&emsp;<code>paste</code>命令会把每个文件以列对列的方式, 一列列地加以合并.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">paste [-s] [-d &lt;间隔字符&gt;] [--help] [--version] [文件]</span><br></pre></td></tr></table></figure></p>
+<p>####paste命令<br>&emsp;&emsp;<code>paste</code>命令会把每个文件以列对列的方式, 一列列地加以合并.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">paste [-s] [-d &lt;间隔字符&gt;] [--help] [--version] [文件]</span><br></pre></td></tr></table></figure></p>
 <ul>
-<li><code>-d &lt;间隔字符&gt;或—delimiters=&lt;间隔字符&gt;</code>:用指定的间隔字符取代跳格字符.</li>
-<li><code>-s或—serial</code>:串列进行而非平行处理。</li>
-<li><code>—help</code>:在线帮助。</li>
-<li><code>—version</code>:显示帮助信息。<br>使用<code>paste</code>指令将文件<code>file、testfile和testfile1</code>进行合并. 首先使用<code>cat</code>命令查看3个文件内容:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ cat file  # file文件的内容</span><br><span class="line">xiongdan 200</span><br><span class="line">lihaihui 233</span><br><span class="line">lymlrl 231</span><br><span class="line">$ cat testfile  # testfile文件的内容</span><br><span class="line">liangyuanm  ss</span><br><span class="line">$ cat testfile1  # testfile1文件的内容</span><br><span class="line">huanggai 56</span><br><span class="line">zhixi 73</span><br></pre></td></tr></table></figure>
+<li><code>-d &lt;间隔字符&gt;或–delimiters=&lt;间隔字符&gt;</code>:用指定的间隔字符取代跳格字符.</li>
+<li><code>-s或–serial</code>:串列进行而非平行处理。</li>
+<li><code>–help</code>:在线帮助。</li>
+<li><code>–version</code>:显示帮助信息。<br>使用<code>paste</code>指令将文件<code>file、testfile和testfile1</code>进行合并. 首先使用<code>cat</code>命令查看3个文件内容:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ cat file  # file文件的内容</span><br><span class="line">xiongdan 200</span><br><span class="line">lihaihui 233</span><br><span class="line">lymlrl 231</span><br><span class="line">$ cat testfile  # testfile文件的内容</span><br><span class="line">liangyuanm  ss</span><br><span class="line">$ cat testfile1  # testfile1文件的内容</span><br><span class="line">huanggai 56</span><br><span class="line">zhixi 73</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>当合并指令执行后, 程序界面中将显示合并后的文件内容:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">xiongdan 200</span><br><span class="line">lihaihui 233</span><br><span class="line">lymlrl 231</span><br><span class="line">liangyuanm  ss</span><br><span class="line">huanggai 56</span><br><span class="line">zhixi 73</span><br></pre></td></tr></table></figure></p>
@@ -462,16 +680,16 @@
 <p>注意, 参数<code>-s</code>只是将<code>testfile</code>文件的内容调整显示方式, 并不会改变原文件的内容格式.</p>
 <h4 id="join命令"><a href="#join命令" class="headerlink" title="join命令"></a>join命令</h4><p>&emsp;&emsp;<code>join</code>命令用于将两个文件中指定列位内容相同的行加以合并, 再输出到标准输出设备:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">join [-i] [-a&lt;1或2&gt;] [-e &lt;字符串&gt;] [-o &lt;格式&gt;] [-t &lt;字符&gt;] [-v &lt;1或2&gt;] \</span><br><span class="line">     [-1 &lt;列位&gt;] [-2 &lt;列位&gt;] [--help] [--version] [文件1] [文件2]</span><br></pre></td></tr></table></figure></p>
 <ul>
-<li><code>-a <1或2></1或2></code>: 除了显示原来的输出内容之外, 还显示指令文件中没有相同栏位的行.</li>
+<li><code>-a &lt;1或2&gt;</code>: 除了显示原来的输出内容之外, 还显示指令文件中没有相同栏位的行.</li>
 <li><code>-e &lt;字符串&gt;</code>: 若文件1与文件2中找不到指定的栏位, 则在输出中填入选项中的字符串.</li>
-<li><code>-i或—igore-case</code>: 比较栏位内容时, 忽略大小写的差异.</li>
+<li><code>-i或–igore-case</code>: 比较栏位内容时, 忽略大小写的差异.</li>
 <li><code>-o &lt;格式&gt;</code>: 按照指定的格式来显示结果.</li>
 <li><code>-t &lt;字符&gt;</code>: 使用栏位的分隔字符.</li>
-<li><code>-v <1或2></1或2></code>: 跟<code>-a</code>相同, 但是只显示文件中没有相同栏位的行.</li>
+<li><code>-v &lt;1或2&gt;</code>: 跟<code>-a</code>相同, 但是只显示文件中没有相同栏位的行.</li>
 <li><code>-1 &lt;列位&gt;</code>: 连接文件1指定的栏位.</li>
 <li><code>-2 &lt;列位&gt;</code>: 连接文件2指定的栏位.</li>
-<li><code>—help</code>: 显示帮助.</li>
-<li><code>—version</code>: 显示版本信息.<br>  首先查看<code>testfile_1、testfile_2</code>中的文件内容:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ cat testfile_1  # testfile_1文件中的内容</span><br><span class="line">Hello 95  # 例如, 本例中第一列为姓名, 第二列为数额</span><br><span class="line">Linux 85</span><br><span class="line">test 30</span><br></pre></td></tr></table></figure>
+<li><code>–help</code>: 显示帮助.</li>
+<li><code>–version</code>: 显示版本信息.<br>  首先查看<code>testfile_1、testfile_2</code>中的文件内容:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ cat testfile_1  # testfile_1文件中的内容</span><br><span class="line">Hello 95  # 例如, 本例中第一列为姓名, 第二列为数额</span><br><span class="line">Linux 85</span><br><span class="line">test 30</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ cat testfile_2  # testfile_2文件中的内容</span><br><span class="line">Hello 2005  # 例如, 本例中第一列为姓名, 第二列为年份</span><br><span class="line">Linux 2009</span><br><span class="line">test 2006</span><br></pre></td></tr></table></figure>
@@ -491,14 +709,14 @@
 <li><code>[A-Z]</code>: <code>A</code>至<code>Z</code>内的字符组成的字符串.</li>
 <li><code>[0-9]</code>: 数字串.</li>
 <li><code>\octal</code>:一个三位的八进制数, 对应有效的<code>ASCII</code>字符.</li>
-<li><code>[O*n]</code>:表示字符<code>O</code>重复出现指定次数<code>n</code>, 因此<code>[O*2]</code>匹配<code>OO</code>的字符串.</li>
+<li><code>[O<em>n]</em></code>:表示字符<code>O</code>重复出现指定次数<code>n</code>, 因此<code>[O2]</code>匹配<code>OO</code>的字符串.</li>
 </ul>
 <ol>
 <li>将文件<code>file</code>中出现的<code>abc</code>替换为<code>xyz</code>:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat file | tr &quot;abc&quot; &quot;xyz&quot; &gt; new_file</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>注意，这里凡是在<code>file</code>中出现的<code>a</code>都替换成x, b替换为y, c替换为z, 而不是将字符串abc替换为字符串xyz.</p>
-<ol>
+<ol start="2">
 <li><p>使用<code>tr</code>命令统一字母大小写:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat file | tr [a-z] [A-Z] &gt; new_file  # 小写 -&gt; 大写</span><br><span class="line">cat file | tr [A-Z] [a-z] &gt; new_file  # 大写 -&gt; 小写</span><br></pre></td></tr></table></figure>
 </li>
@@ -510,12 +728,12 @@
 </li>
 </ol>
 <p>注意，这里凡是在<code>file</code>文件中出现的<code>S、n、a、i和l</code>字符都会被删除, 而不是仅仅删除出现的<code>Snail</code>字符串.</p>
-<ol>
+<ol start="5">
 <li>删除文件<code>file</code>中出现的换行\n、制表\t字符:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat file | tr -d &quot;\n\t&quot; &gt; new_file</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>不可见字符都得用转义字符来表示的, 这个都是统一的.</p>
-<ol>
+<ol start="6">
 <li><p>删除连续的重复字母, 只保留第一个:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat file | tr -s [a-zA-Z] &gt; new_file</span><br></pre></td></tr></table></figure>
 </li>
@@ -527,12 +745,12 @@
 </li>
 </ol>
 <p>注意，这里<code>-s</code>后面是两个参数<code>\r和\n</code>, 用后者替换前者.</p>
-<ol>
-<li>用空格符<code>\040</code>替换制表符<codde>\011&lt;/code&gt;:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat file | tr -s &quot;\011&quot; &quot;\040&quot; &gt; new_file</span><br></pre></td></tr></table></figure>
+<ol start="9">
+<li>用空格符<code>\040</code>替换制表符<codde>\011:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat file | tr -s &quot;\011&quot; &quot;\040&quot; &gt; new_file</span><br></pre></td></tr></table></figure>
 </codde></li>
 </ol>
 <p>  </p>
-<ol>
+<ol start="10">
 <li>把路径变量中的冒号<code>:</code>替换成换行符<code>\n</code>:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo $PATH | tr -s &quot;:&quot; &quot;\n&quot;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
@@ -808,10 +1026,8 @@
 <h1 id="图像处理之Canny边缘检测"><a href="#图像处理之Canny边缘检测" class="headerlink" title="图像处理之Canny边缘检测"></a>图像处理之Canny边缘检测</h1><h4 id="理论介绍"><a href="#理论介绍" class="headerlink" title="理论介绍:"></a>理论介绍:</h4><p>Canny边缘检测是一种流行的边缘检测算法. 它由John F. Canny于1986年开发. 它是一个多阶段算法, 我们将经历每个阶段.</p>
 <ol>
 <li><strong>降噪</strong><br>由于边缘检测易受图像中的噪声影响, 因此第一步是使用5x5高斯滤波器去除图像中的噪.  </li>
-<li><p><strong>寻找图像的强度梯度</strong><br>然后在水平和垂直方向上用Sobel内核对平滑后的图像进行滤波, 以获得水平方向$(G<em>{x})$和垂直方向$(G</em>{y})$的一阶导数. 从这两个图像中, 我们可以找到每个像素的<strong>边缘梯度和方向</strong>, 渐变方向始终垂直于边缘. 边缘方向角度四舍五入为四个角度中的一个, 表示垂直, 水平和两个对角线(0°,45°,90°和135°). 落入每个颜色区域的边缘方向将被设置为特定角度值,例如, 在[0°,22.5°]或[157.5°,180°]中的θ映射到0°. 如下所示</p>
-<script type="math/tex; mode=display">
-EdgeGradient(G)= \sqrt {G_x ^ 2 + G_y ^ 2}\\
-Angle(\theta)= \tan^{-1}(\frac {G_y} {G_x})</script></li>
+<li><p><strong>寻找图像的强度梯度</strong><br>然后在水平和垂直方向上用Sobel内核对平滑后的图像进行滤波, 以获得水平方向$(G_{x})$和垂直方向$(G_{y})$的一阶导数. 从这两个图像中, 我们可以找到每个像素的<strong>边缘梯度和方向</strong>, 渐变方向始终垂直于边缘. 边缘方向角度四舍五入为四个角度中的一个, 表示垂直, 水平和两个对角线(0°,45°,90°和135°). 落入每个颜色区域的边缘方向将被设置为特定角度值,例如, 在[0°,22.5°]或[157.5°,180°]中的θ映射到0°. 如下所示<br>$$<br>EdgeGradient(G)= \sqrt {G_x ^ 2 + G_y ^ 2}\<br>Angle(\theta)= \tan^{-1}(\frac {G_y} {G_x})<br>$$</p>
+</li>
 <li><p><strong>非最大抑制</strong><br>应用梯度计算后, 从梯度值中提取的边缘仍然非常模. 关于标准3, 应该只对边缘有一个准确的响应. 因此, 非最大抑制可以帮助抑制所有梯度值(通过将它们设置为0), 除了局部最大值, 其指示具有最强烈的强度值变化的位置. 梯度图像中每个像素的算法是:</p>
 <ul>
 <li>将当前像素的边缘强度与正和负梯度方向上的像素的边缘强度进行比较.</li>
@@ -832,17 +1048,17 @@ Angle(\theta)= \tan^{-1}(\frac {G_y} {G_x})</script></li>
 <li>第三个参数是maxVal, 最大边缘阈值</li>
 </ul>
 <p>推荐的minVal和maxVal阈值之间的比例为1:3或者1:2, 可选参数中apertureSize就是Sobel算子的大小. 而L2gradient参数是一个布尔值, 如果为真, 则使用更精确的L2范数进行计算(即两个方向的倒数的平方和再开放), 否则使用L1范数(直接将两个方向导数的绝对值相加).</p>
-<h4 id="代码展示"><a href="#代码展示" class="headerlink" title="代码展示:"></a>代码展示:</h4><pre><code class="lang-python">import cv2
-import numpy as np
-from matplotlib import pyplot as plt
+<h4 id="代码展示"><a href="#代码展示" class="headerlink" title="代码展示:"></a>代码展示:</h4><pre><code class="python"><span class="keyword">import</span> cv2
+<span class="keyword">import</span> numpy <span class="keyword">as</span> np
+<span class="keyword">from</span> matplotlib <span class="keyword">import</span> pyplot <span class="keyword">as</span> plt
 
-img = cv2.imread(&#39;messi5.jpg&#39;,0)
-edges = cv2.Canny(img,100,200)
+img = cv2.imread(<span class="string">'messi5.jpg'</span>,<span class="number">0</span>)
+edges = cv2.Canny(img,<span class="number">100</span>,<span class="number">200</span>)
 
-plt.subplot(121),plt.imshow(img,cmap = &#39;gray&#39;)
-plt.title(&#39;Original Image&#39;), plt.xticks([]), plt.yticks([])
-plt.subplot(122),plt.imshow(edges,cmap = &#39;gray&#39;)
-plt.title(&#39;Edge Image&#39;), plt.xticks([]), plt.yticks([])
+plt.subplot(<span class="number">121</span>),plt.imshow(img,cmap = <span class="string">'gray'</span>)
+plt.title(<span class="string">'Original Image'</span>), plt.xticks([]), plt.yticks([])
+plt.subplot(<span class="number">122</span>),plt.imshow(edges,cmap = <span class="string">'gray'</span>)
+plt.title(<span class="string">'Edge Image'</span>), plt.xticks([]), plt.yticks([])
 
 plt.show()
 </code></pre>
@@ -1116,51 +1332,31 @@ plt.show()
             <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
 
 <h1 id="LSTM-Network-长短期时间序列模型介绍"><a href="#LSTM-Network-长短期时间序列模型介绍" class="headerlink" title="LSTM Network 长短期时间序列模型介绍"></a>LSTM Network 长短期时间序列模型介绍</h1><h2 id="核心算法介绍"><a href="#核心算法介绍" class="headerlink" title="核心算法介绍:"></a><strong>核心算法介绍:</strong></h2><h3 id="传统的RNN神经网络"><a href="#传统的RNN神经网络" class="headerlink" title="传统的RNN神经网络:"></a><strong>传统的RNN神经网络:</strong></h3><p>&emsp;&emsp;RNN之所以称为循环神经网络，即”一个序列的当前输出与前面的输出是有相关性”。具体实质体现在后面层数的输入值要加入前面层的输出值，即隐藏层之间不再是不相连的而是有连接的。</p>
-<center><img src="https://colah.github.io/posts/2015-08-Understanding-LSTMs/img/RNN-unrolled.png" width="380" height="125"></center>
-<center><strong>展开的递归循环神经网络</strong></center>
-&emsp;&emsp;在学习信息情况下，如果相关信息与所需信息之间的差距很小，则RNN可以学习使用过去的信息，表现出较好的训练能力，比如：我们试图预测"云在天空中"的最后一次"天空",RNN模型就能非常容易的识别出来。但是，如果相关信息与所需要信息之间的<strong>距离相差过远</strong>时，RNN模型就会很难学习连接这些关系。
-<center><img src="https://colah.github.io/posts/2015-08-Understanding-LSTMs/img/RNN-longtermdependencies.png" width="380" height="150"></center>
+<center><img src="https://colah.github.io/posts/2015-08-Understanding-LSTMs/img/RNN-unrolled.png" width="380" height="125"></center><br><center><strong>展开的递归循环神经网络</strong></center><br>&emsp;&emsp;在学习信息情况下，如果相关信息与所需信息之间的差距很小，则RNN可以学习使用过去的信息，表现出较好的训练能力，比如：我们试图预测”云在天空中”的最后一次”天空”,RNN模型就能非常容易的识别出来。但是，如果相关信息与所需要信息之间的<strong>距离相差过远</strong>时，RNN模型就会很难学习连接这些关系。<br><center><img src="https://colah.github.io/posts/2015-08-Understanding-LSTMs/img/RNN-longtermdependencies.png" width="380" height="150"></center>
 
 <h3 id="LSTM-神经网络"><a href="#LSTM-神经网络" class="headerlink" title="LSTM 神经网络:"></a><strong>LSTM 神经网络:</strong></h3><p>&emsp;&emsp; 长短期时间序列模型(LSTM)是一种特殊的RNN，能够学习长期的依赖性。LSTM的优点就是能够明确旨在避免长期依赖性问题。它能够长时间记住信息，解决了RNN信息距离过长而丧失学习的能力的缺点。所有递归神经网络都具有具有神经网络重复模块链的形式。在标准的RNN中，该重复模块具有非常简单的结构，就是单一的tanh层。</p>
-<center><img src="https://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-SimpleRNN.png" width="380" height="150"></center>
-<center><strong>标准RNN中的重复模块包含单个层</strong></center>
-&emsp;&emsp;同样LSTM也具有这种类似链的结构，但是重复模块缺失具有不同的结构，它们分别是传输层，遗忘门，输入门，输出门。
-<center><img src="https://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-chain.png" width="380" height="150"></center>
-<center><strong>LSTM中的重复模块包含四个交互层</strong></center>
+<center><img src="https://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-SimpleRNN.png" width="380" height="150"></center><br><center><strong>标准RNN中的重复模块包含单个层</strong></center><br>&emsp;&emsp;同样LSTM也具有这种类似链的结构，但是重复模块缺失具有不同的结构，它们分别是传输层，遗忘门，输入门，输出门。<br><center><img src="https://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-chain.png" width="380" height="150"></center><br><center><strong>LSTM中的重复模块包含四个交互层</strong></center>
 
 <h3 id="1-传输层"><a href="#1-传输层" class="headerlink" title="1.传输层"></a><strong>1.传输层</strong></h3><p>&emsp;&emsp;传输层水平贯穿图的顶部，直接沿着整个链运行，进行着一些次要的线性交互。从上图中我们可以看出，每个序列索引位置t时刻向前传播中除了和RNN一样具有隐藏状态$h^{(t)}$,还多了另一个隐藏状态，图中上面的横线我们一般称为<strong>细胞状态</strong>，记为$C^{(t)}$。</p>
-<center><img src="https://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-C-line.png" width="500" height="180"></center>
-<center><strong>传输层中的细胞状态</strong></center>
+<center><img src="https://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-C-line.png" width="500" height="180"></center><br><center><strong>传输层中的细胞状态</strong></center>
 
-<h3 id="2-遗忘门"><a href="#2-遗忘门" class="headerlink" title="2.遗忘门"></a><strong>2.遗忘门</strong></h3><p>&emsp;&emsp;遗忘门是以一定的概率控制是否遗忘上一层的隐藏细胞状态。图中我们可以看出输入的有上一序列的隐藏状态$h^{(t-1)}$和本序列数据$x^{(t)}$,通过激活函数sigmoid，得到遗忘门的输出$f(t)$.由于sigmoid函数的输出$f(t)$是位于[0,1]之间，所以这里的输出$f(t)$就是代表了<strong>能否遗忘上一层隐藏细胞状态的概率</strong>。<br>该数字表达可以为:</p>
-<script type="math/tex; mode=display">
-f^{(t)}=\sigma(W_{f}h^{(t-1)}+U_{f}x{(t)}+b_{f})</script><p>其中$W<em>{f}$,$U</em>{f}$,$b_{f}$分别为线性关系的权重和偏移值。</p>
-<center><img src="https://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-focus-f.png" width="450" height="180"></center>
-<center><strong>遗忘门的体系架构</strong></center>
+<h3 id="2-遗忘门"><a href="#2-遗忘门" class="headerlink" title="2.遗忘门"></a><strong>2.遗忘门</strong></h3><p>&emsp;&emsp;遗忘门是以一定的概率控制是否遗忘上一层的隐藏细胞状态。图中我们可以看出输入的有上一序列的隐藏状态$h^{(t-1)}$和本序列数据$x^{(t)}$,通过激活函数sigmoid，得到遗忘门的输出$f(t)$.由于sigmoid函数的输出$f(t)$是位于[0,1]之间，所以这里的输出$f(t)$就是代表了<strong>能否遗忘上一层隐藏细胞状态的概率</strong>。<br>该数字表达可以为:<br>$$<br>f^{(t)}=\sigma(W_{f}h^{(t-1)}+U_{f}x{(t)}+b_{f})<br>$$</p>
+<p>其中$W_{f}$,$U_{f}$,$b_{f}$分别为线性关系的权重和偏移值。</p>
+<center><img src="https://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-focus-f.png" width="450" height="180"></center><br><center><strong>遗忘门的体系架构</strong></center>
 
-<h3 id="3-输入门"><a href="#3-输入门" class="headerlink" title="3.输入门"></a><strong>3.输入门</strong></h3><p>输入门层决定我们在单元状态中存储哪些新的信息。其中有两部分组成，一部分称为”输入门层的sigmoid层”,这层决定我们将更新之前的哪些值，输出为$i^{(t)}$，第二部分为”输入门层的tanh层”,这层决定我们创建新的候选值,输出为$a^{(t)}$，最后结合两个创建状态进行更新。<br>该数学表达式可以为:</p>
-<script type="math/tex; mode=display">
-i^{(t)}=\sigma(W_{i}h^{(t-1)}+U_{i}x{(t)}+b_{i})\\
-a^{(t)}=\tanh(W_{a}h^{(t-1)}+U_{a}x{(t)}+b_{a})</script><p>其中$W<em>{i}$,$U</em>{i}$,$b<em>{i}$,$W</em>{a}$,$U<em>{a}$,$b</em>{a}$分别为线性关系的权重和偏移值。</p>
-<center><img src="https://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-focus-i.png" width="450" height="180"></center>
-<center><strong>输入门的体系架构</strong></center>
+<h3 id="3-输入门"><a href="#3-输入门" class="headerlink" title="3.输入门"></a><strong>3.输入门</strong></h3><p>输入门层决定我们在单元状态中存储哪些新的信息。其中有两部分组成，一部分称为”输入门层的sigmoid层”,这层决定我们将更新之前的哪些值，输出为$i^{(t)}$，第二部分为”输入门层的tanh层”,这层决定我们创建新的候选值,输出为$a^{(t)}$，最后结合两个创建状态进行更新。<br>该数学表达式可以为:<br>$$<br>i^{(t)}=\sigma(W_{i}h^{(t-1)}+U_{i}x{(t)}+b_{i})\<br>a^{(t)}=\tanh(W_{a}h^{(t-1)}+U_{a}x{(t)}+b_{a})<br>$$<br>其中$W_{i}$,$U_{i}$,$b_{i}$,$W_{a}$,$U_{a}$,$b_{a}$分别为线性关系的权重和偏移值。</p>
+<center><img src="https://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-focus-i.png" width="450" height="180"></center><br><center><strong>输入门的体系架构</strong></center>
 
-<h3 id="4-细胞状态更新"><a href="#4-细胞状态更新" class="headerlink" title="4.细胞状态更新"></a><strong>4.细胞状态更新</strong></h3><p>此过程是决定将旧的细胞状态$C<em>{t-1}$更新至新的细胞状态$C</em>{t}$。在这个过程中首先我们将<strong>$f<em>{t}$乘以$C</em>{t-1}$来决定是否忘记之前的事情</strong>。其次我们添加了<strong>$i<em>{t}*\tilde{C</em>{t}}$来决定我们需要更新多少新的状态值</strong>。即：</p>
-<script type="math/tex; mode=display">
-C^{(t)}=C^{(t-1)}\odot f^{(t)}+i^{(t)}\odot a^{(t)}</script><center><img src="https://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-focus-C.png" width="450" height="180"></center>
-<center><strong>细胞状态更新体系架构</strong></center>
+<h3 id="4-细胞状态更新"><a href="#4-细胞状态更新" class="headerlink" title="4.细胞状态更新"></a><strong>4.细胞状态更新</strong></h3><p>此过程是决定将旧的细胞状态$C_{t-1}$更新至新的细胞状态$C_{t}$。在这个过程中首先我们将<strong>$f_{t}$乘以$C_{t-1}$来决定是否忘记之前的事情</strong>。其次我们添加了<strong>$i_{t}*\tilde{C_{t}}$来决定我们需要更新多少新的状态值</strong>。即：<br>$$<br>C^{(t)}=C^{(t-1)}\odot f^{(t)}+i^{(t)}\odot a^{(t)}<br>$$</p>
+<center><img src="https://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-focus-C.png" width="450" height="180"></center><br><center><strong>细胞状态更新体系架构</strong></center>
 
-<h3 id="5-输出门"><a href="#5-输出门" class="headerlink" title="5.输出门"></a><strong>5.输出门</strong></h3><p>输出门是决定我们要输出的内容。首先，先运行的是一个sigmoid层，决定输出的单元状态属于隐藏状态部分$h^{(t-1)}$,还是本序列数据部分$x^{(t)}$.接着，运行的是tan层，将细胞状态$C_{t}$乘以sigmoid层的输出，从而获取我们所决定的部分。即：</p>
-<script type="math/tex; mode=display">
-o^{(t)}=\sigma(W_{o}h^{(t-1)}+U_{o}x^(t)+b_{o})\\
-h^{(t)}= o^{(t)}\odot\tanh(C^{(t)})</script><p>同理其中的$W<em>{o}$,$U</em>{o}$,$b_{o}$分别为线性关系的权重和偏移值。</p>
-<center><img src="https://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-focus-o.png" width="450" height="180"></center>
-<center><strong>输出门的体系架构</strong></center>
+<h3 id="5-输出门"><a href="#5-输出门" class="headerlink" title="5.输出门"></a><strong>5.输出门</strong></h3><p>输出门是决定我们要输出的内容。首先，先运行的是一个sigmoid层，决定输出的单元状态属于隐藏状态部分$h^{(t-1)}$,还是本序列数据部分$x^{(t)}$.接着，运行的是tan层，将细胞状态$C_{t}$乘以sigmoid层的输出，从而获取我们所决定的部分。即：<br>$$<br>o^{(t)}=\sigma(W_{o}h^{(t-1)}+U_{o}x^(t)+b_{o})\<br>h^{(t)}= o^{(t)}\odot\tanh(C^{(t)})<br>$$<br>同理其中的$W_{o}$,$U_{o}$,$b_{o}$分别为线性关系的权重和偏移值。</p>
+<center><img src="https://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-focus-o.png" width="450" height="180"></center><br><center><strong>输出门的体系架构</strong></center>
 
 <h2 id="Keras-LSTM-算法模型："><a href="#Keras-LSTM-算法模型：" class="headerlink" title="Keras LSTM 算法模型："></a><strong>Keras LSTM 算法模型：</strong></h2><h3 id="LSTM模型构建"><a href="#LSTM模型构建" class="headerlink" title="LSTM模型构建: "></a><strong>LSTM模型构建: </strong></h3><p>1.首先初始化模型Sequential()</p>
 <p>2.接着添加LSTM模型层架构，其中$hiddenLayer$代表为隐藏神经元个数，通俗易懂的解释可以为模型中每个sigmoid层或者tanh层。(注意:LSTM训练模型格式矩阵内容<strong>[samples,time_steps,features]</strong>,简单的说就是[n,1,m]架构，即规定了多少特征输入，一个输出)</p>
 <p>3.添加模型全连接层</p>
-<p>4.编译模型，选择对应的损失函数和优化器，其中常用的损失函数是MSE,MAE—用于回归，binary-crossentropy—用于二值化分类，categorical-crossentropy—用于标签分类。优化的选择我们常用的自适应学习率优化算法 AdaGrad, AdaDelta,Adam。其他类型不建议使用。</p>
+<p>4.编译模型，选择对应的损失函数和优化器，其中常用的损失函数是MSE,MAE–用于回归，binary-crossentropy–用于二值化分类，categorical-crossentropy–用于标签分类。优化的选择我们常用的自适应学习率优化算法 AdaGrad, AdaDelta,Adam。其他类型不建议使用。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">model = Sequential()</span><br><span class="line">model.add(LSTM(hiddenLayer, input_shape=(train_x.shape[<span class="number">1</span>], train_x.shape[<span class="number">2</span>])))</span><br><span class="line">model.add(Dense(<span class="number">1</span>))</span><br><span class="line">model.compile(loss=loss, optimizer=optimizer, metrics=[<span class="string">"accuracy"</span>])</span><br></pre></td></tr></table></figure>
 <h3 id="LSTM模型训练"><a href="#LSTM模型训练" class="headerlink" title="LSTM模型训练: "></a><strong>LSTM模型训练: </strong></h3><p>将设置好的LSTM模型进行训练，其中$epochs$为循环迭代的次数，$batch size$即每次循环所走的分支数，$validation data$即采用交叉验证的方式对数据进行验证<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Fit network</span></span><br><span class="line">checkpointer = ModelCheckpoint(filepath=outputModel, verbose=<span class="number">1</span>, save_best_only=<span class="literal">True</span>)</span><br><span class="line">history = model.fit(</span><br><span class="line">    train_x,</span><br><span class="line">    train_y,</span><br><span class="line">    epochs=epochs,</span><br><span class="line">    batch_size=batchSize,</span><br><span class="line">    validation_data=(test_x, test_y),</span><br><span class="line">    verbose=<span class="number">2</span>,</span><br><span class="line">    shuffle=<span class="literal">False</span>,</span><br><span class="line">    callbacks=[checkpointer],</span><br><span class="line">)</span><br><span class="line">logger.info(model.summary())</span><br><span class="line">show_picture(history, imageFolder)</span><br></pre></td></tr></table></figure></p>
 <h3 id="LSTM模型预测"><a href="#LSTM模型预测" class="headerlink" title="LSTM模型预测: "></a><strong>LSTM模型预测: </strong></h3><p>模型预测后的得到的结果为[n,1,m]类型，需要重新reshape得到最终的结果<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yhat = model.predict(test_X)</span><br></pre></td></tr></table></figure></p>
@@ -1373,7 +1569,7 @@ h^{(t)}= o^{(t)}\odot\tanh(C^{(t)})</script><p>同理其中的$W<em>{o}$,$U</em>
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
