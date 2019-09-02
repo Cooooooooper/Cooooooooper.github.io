@@ -261,6 +261,550 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/02/Pandas-Dataframe-标准命令/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Coper">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="张添豪的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/02/Pandas-Dataframe-标准命令/" itemprop="url">Pandas Dataframe 标准命令</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-02T09:57:25+08:00">
+                2019-09-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-09-02 09:57:25
+ * @LastEditTime: 2019-09-02 14:39:11
+ * @LastEditors: Please set LastEditors
+ -->
+<h3 id="1-dataFrame创建"><a href="#1-dataFrame创建" class="headerlink" title="1. dataFrame创建"></a>1. dataFrame创建</h3><h4 id="建立指定的Index的dataframe"><a href="#建立指定的Index的dataframe" class="headerlink" title="建立指定的Index的dataframe"></a>建立指定的Index的dataframe</h4><p><code>input:</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">data = &#123;&apos;BoolCol&apos;: [1, 2, 3, 3, 4],</span><br><span class="line">        &apos;attr&apos;: [22, 33, 22, 44, 66],</span><br><span class="line">        &apos;BoolC&apos;: [1, 2, 3, 3, 4],</span><br><span class="line">        &apos;att&apos;: [22, 33, 22, 44, 66],</span><br><span class="line">        &apos;Bool&apos;: [1, 2, 3, 3, 4]</span><br><span class="line">        &#125;</span><br><span class="line">index = pd.Index(data=[10,20,30,40,50],name=&quot;self_index&quot;)</span><br><span class="line">df = pd.DataFrame(data,index=index)</span><br></pre></td></tr></table></figure></p>
+<p><code>output:</code></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">self_index</th>
+<th style="text-align:center">BoolCol</th>
+<th style="text-align:center">attr</th>
+<th style="text-align:center">BoolC</th>
+<th style="text-align:center">att</th>
+<th style="text-align:center">Bool</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">10</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">22</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">22</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">20</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">33</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">33</td>
+<td style="text-align:center">2</td>
+</tr>
+<tr>
+<td style="text-align:center">30</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">44</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">44</td>
+<td style="text-align:center">3</td>
+</tr>
+<tr>
+<td style="text-align:center">40</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">55</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">55</td>
+<td style="text-align:center">3</td>
+</tr>
+<tr>
+<td style="text-align:center">50</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">66</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">66</td>
+<td style="text-align:center">4</td>
+</tr>
+</tbody>
+</table>
+<h4 id="建立对应feature的dataframe"><a href="#建立对应feature的dataframe" class="headerlink" title="建立对应feature的dataframe"></a>建立对应feature的dataframe</h4><p><code>input:</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">feature = [&apos;a&apos;,&apos;b&apos;,&apos;c&apos;,&apos;d&apos;]</span><br><span class="line">data = [[1,2,3,4],[1,2,3,4],[1,2,3,4],[1,2,3,4]]</span><br><span class="line">index = range(0,4)</span><br><span class="line">df_empty = pd.DataFrame(data = data,index = index, columns = feature)</span><br></pre></td></tr></table></figure></p>
+<p><code>output:</code></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">a</th>
+<th style="text-align:center">b</th>
+<th style="text-align:center">c</th>
+<th style="text-align:center">d</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">5</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">5</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">5</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">5</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">5</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2-dataframe中获取指定行与列"><a href="#2-dataframe中获取指定行与列" class="headerlink" title="2. dataframe中获取指定行与列"></a>2. dataframe中获取指定行与列</h3><ol>
+<li><code>iloc</code>读取方式<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df_empty.iloc[:,1:3] # 读取第一列和第二列的所有行的数据</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">b</th>
+<th style="text-align:center">c</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">3</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">3</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">3</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">3</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">3</td>
+</tr>
+</tbody>
+</table>
+<ol start="2">
+<li><code>loc</code>读取方式，<code>loc</code>读取可以指定列名<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df_empty.loc[0:1,&apos;a&apos;] # 读取对应列&apos;a&apos;的指定行</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+</tr>
+</tbody>
+</table>
+<ol start="3">
+<li><code>common</code>读取方式<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df_empty[&apos;a&apos;][1:3] #同理读取对应列&apos;a&apos;的指定行</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+</tr>
+</tbody>
+</table>
+<h3 id="3-dataframe插入行与列操作"><a href="#3-dataframe插入行与列操作" class="headerlink" title="3. dataframe插入行与列操作"></a>3. dataframe插入行与列操作</h3><h4 id="dataframe的插入行操作"><a href="#dataframe的插入行操作" class="headerlink" title="dataframe的插入行操作"></a>dataframe的插入行操作</h4><ol>
+<li>采用<code>loc</code>的方式插入<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">for i in range(len(df_empty))：</span><br><span class="line">    df_empty.loc[i] = [2,3,4,5]</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">a</th>
+<th style="text-align:center">b</th>
+<th style="text-align:center">c</th>
+<th style="text-align:center">d</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">5</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">5</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">5</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">5</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">5</td>
+</tr>
+</tbody>
+</table>
+<ol start="2">
+<li>采用<code>concat</code>的方式连接各行<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">insertRow = pd.DataFrame([[0.,0.,0.,0.]],columns = [&apos;a&apos;,&apos;b&apos;,&apos;c&apos;,&apos;d&apos;])</span><br><span class="line">above = df_empty.loc[:2] # 指定需要添加的内容</span><br><span class="line">below = df_empty.loc[3:]</span><br><span class="line">newData2 = pd.concat([above,insertRow,below],ignore_index = True, sort = True) # [above,insertRow,below]指定需要连接的内容</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">a</th>
+<th style="text-align:center">b</th>
+<th style="text-align:center">c</th>
+<th style="text-align:center">d</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">2.0</td>
+<td style="text-align:center">3.0</td>
+<td style="text-align:center">4.0</td>
+<td style="text-align:center">5.0</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">2.0</td>
+<td style="text-align:center">3.0</td>
+<td style="text-align:center">4.0</td>
+<td style="text-align:center">5.0</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">2.0</td>
+<td style="text-align:center">3.0</td>
+<td style="text-align:center">4.0</td>
+<td style="text-align:center">5.0</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">0.0</td>
+<td style="text-align:center">0.0</td>
+<td style="text-align:center">0.0</td>
+<td style="text-align:center">0.0</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">2.0</td>
+<td style="text-align:center">3.0</td>
+<td style="text-align:center">4.0</td>
+<td style="text-align:center">5.0</td>
+</tr>
+</tbody>
+</table>
+<h4 id="dataframe的插入列操作"><a href="#dataframe的插入列操作" class="headerlink" title="dataframe的插入列操作"></a>dataframe的插入列操作</h4><ol>
+<li>把一个<code>dataframe</code>中的一列插入到另一个<code>dataframe</code>一列中<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">date = df_empty.pop(&apos;a&apos;) # 取df_empty中的&apos;a&apos;列, 包括元素</span><br><span class="line">df = pd.DataFrame(np.random.randn(5,5))</span><br><span class="line">df.insert(0,&apos;a&apos;,date) # 插入到第1列的位置</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">a</th>
+<th>0</th>
+<th style="text-align:center">1</th>
+<th style="text-align:center">2</th>
+<th style="text-align:center">3</th>
+<th style="text-align:center">4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">2.0</td>
+<td>0.846760</td>
+<td style="text-align:center">-0.325068</td>
+<td style="text-align:center">-0.119201</td>
+<td style="text-align:center">-1.306327</td>
+<td style="text-align:center">0.322109</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">2.0</td>
+<td>0.314974</td>
+<td style="text-align:center">0.422572</td>
+<td style="text-align:center">0.462432</td>
+<td style="text-align:center">-1.081217</td>
+<td style="text-align:center">-0.942316</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">2.0</td>
+<td>0.482943</td>
+<td style="text-align:center">-0.058583</td>
+<td style="text-align:center">1.157830</td>
+<td style="text-align:center">-0.307304</td>
+<td style="text-align:center">1.220492</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">2.0</td>
+<td>-0.611970</td>
+<td style="text-align:center">0.142077</td>
+<td style="text-align:center">-2.295693</td>
+<td style="text-align:center">-0.128190</td>
+<td style="text-align:center">2.267066</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">NaN</td>
+<td>0.761353</td>
+<td style="text-align:center">0.257780</td>
+<td style="text-align:center">-0.979122</td>
+<td style="text-align:center">0.346593</td>
+<td style="text-align:center">0.793704</td>
+</tr>
+</tbody>
+</table>
+<ol start="2">
+<li>重构<code>dataframe</code>进行列值添加<pre><code>feature.insert(5,&apos;e&apos;) # 特征值添加一个列值
+df1=df_empty.reindex(columns=feature) # 重构dataframe结构
+df1[&apos;e&apos;] = [6,6,6,6] # 添加相应的value值
+</code></pre></li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">a</th>
+<th style="text-align:center">b</th>
+<th style="text-align:center">c</th>
+<th style="text-align:center">d</th>
+<th style="text-align:center">e</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">6</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">6</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">6</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">6</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">6</td>
+</tr>
+</tbody>
+</table>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/20/Linux-基本文本处理/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -280,7 +824,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/08/20/Linux-基本文本处理/" itemprop="url">Linux --基本文本处理</a></h1>
+                <a class="post-title-link" href="/2019/08/20/Linux-基本文本处理/" itemprop="url">Linux --常用命令</a></h1>
         
 
         <div class="post-meta">
@@ -336,7 +880,7 @@
  * @Description: In User Settings Edit#
  * @Author: your name
  * @Date: 2019-08-19 16:55:11
- * @LastEditTime: 2019-08-20 16:06:55
+ * @LastEditTime: 2019-09-02 09:55:12
  * @LastEditors: Please set LastEditors
  -->
 <h4 id="1-cd命令"><a href="#1-cd命令" class="headerlink" title="1.cd命令:"></a>1.cd命令:</h4><p>这是一个非常基本, 也是大家经常需要使用的命令, 它用于<strong>切换当前目录</strong>, 它的参数是要切换到的目录的路径, 可以是绝对路径, 也可以是相对路.如:</p>
@@ -1643,7 +2187,7 @@ plt.show()
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
